@@ -1,4 +1,4 @@
-package addictionsupportroom.mobile.soberpal
+package com.workshopapps.addictionsupportroom
 
 import io.flutter.embedding.android.FlutterActivity
 
