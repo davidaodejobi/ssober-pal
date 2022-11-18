@@ -7,7 +7,7 @@ class AppColor {
   static const Color kErrorColor = Color(0xFFda2525);
   static const Color kGrayColor = Color(0xFF575757);
   static const Color kWarningColor = Color(0xFFe7b913);
-
+  
   static const primaryColor = MaterialColor(
     0xff204e65,
     {
@@ -25,14 +25,14 @@ class AppColor {
   );
 
   static const secondaryColor = MaterialColor(
-    0xff4fb1dc,
+    0XFF4FB1DC,
     {
-      50: Color(0xFFedf7fc),
-      100: Color(0xFFc8e7f4),
-      200: Color(0xFFaedbef),
-      300: Color(0xFF89cbe8),
-      400: Color(0xFF72c1e3),
-      500: Color(0xFF4fb1dc),
+      50: Color(0XFFEDF7FC),
+      100: Color(0XFFC8E7F4),
+      200: Color(0XFFAEDBEF),
+      300: Color(0XFF89CBE8),
+      400: Color(0XFF72C1E3),
+      500: Color(0XFF4FB1DC),
       600: Color(0xFF48a1c8),
       700: Color(0xFF387e9c),
       800: Color(0xFF2b6179),
