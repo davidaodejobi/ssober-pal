@@ -1,6 +1,5 @@
 import 'package:addictionsupportroom/routes/error404.dart';
 import 'package:addictionsupportroom/testingpage.dart';
-import 'package:addictionsupportroom/view/account/home.dart';
 import 'package:auto_route/auto_route.dart';
 
 @MaterialAutoRouter(
