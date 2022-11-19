@@ -1,11 +1,9 @@
 import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
-import 'package:addictionsupportroom/model/feelings.dart';
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/spacing.dart';
 import 'package:addictionsupportroom/util/text.dart';
-import 'package:addictionsupportroom/view/home/screens/dailey_notes.dart';
-import 'package:addictionsupportroom/view/home/widgets/emoji.dart';
 import 'package:addictionsupportroom/view/home/widgets/status.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import 'package:addictionsupportroom/view/shared/progress_widget.dart';
@@ -47,8 +45,7 @@ class Home extends StatelessWidget {
           InkWell(
             onTap: () {
               Provider.of<FeelingsController>(context, listen: false).clear();
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const DailyNotes()));
+              AutoRouter.of(context).pushNamed('/dailynotes');
             },
             child: Container(
                 width: MediaQuery.of(context).size.width,
