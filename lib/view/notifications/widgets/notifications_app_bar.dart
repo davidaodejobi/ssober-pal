@@ -3,7 +3,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:addictionsupportroom/util/color.dart';
 
-import '../../../util/color.dart';
 
 AppBar buildAppBar(BuildContext context) {
   return AppBar(
