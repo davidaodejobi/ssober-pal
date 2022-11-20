@@ -3,6 +3,7 @@ import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/spacing.dart';
 import 'package:addictionsupportroom/util/text.dart';
 import 'package:addictionsupportroom/view/home/widgets/status.dart';
+import 'package:addictionsupportroom/view/notifications/screens/notifications_screen.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,8 @@ class Home extends StatelessWidget {
             children: [
               const Text('Hello, Dolphin!', style: AppText.h4medium),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () => AutoRouter.of(context)
+                      .pushNamed("/${NotificationScreen.routeName}"),
                   icon: const Icon(Icons.notifications_outlined))
             ],
           ),

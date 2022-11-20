@@ -1,4 +1,5 @@
 import 'package:addictionsupportroom/util/color.dart';
+import 'package:addictionsupportroom/view/notifications/screens/notifications_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../home/screens/home_screen.dart';
@@ -65,6 +66,8 @@ class _MainScreenState extends State<MainScreen> {
               return const Center(
                 child: Text('Account'),
               );
+            case 4:
+              return const NotificationScreen();
           }
           return Container();
         }),
