@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
 
 class AppText {
+  static const h1regular = TextStyle(
+      fontSize: 40, fontFamily: 'Nunito', fontWeight: FontWeight.w400);
+  static const h1medium = TextStyle(
+      fontSize: 40, fontFamily: 'Nunito', fontWeight: FontWeight.w500);
+  static const h1bold = TextStyle(
+      fontSize: 40, fontFamily: 'Nunito', fontWeight: FontWeight.w700);
+  static const h2regular = TextStyle(
+      fontSize: 32, fontFamily: 'Nunito', fontWeight: FontWeight.w400);
+  static const h2medium = TextStyle(
+      fontSize: 32, fontFamily: 'Nunito', fontWeight: FontWeight.w500);
+  static const h2bold = TextStyle(
+      fontSize: 32, fontFamily: 'Nunito', fontWeight: FontWeight.w700);
+  static const h3regular = TextStyle(
+      fontSize: 28, fontFamily: 'Nunito', fontWeight: FontWeight.w400);
+  static const h3medium = TextStyle(
+      fontSize: 28, fontFamily: 'Nunito', fontWeight: FontWeight.w500);
+  static const h3bold = TextStyle(
+      fontSize: 28, fontFamily: 'Nunito', fontWeight: FontWeight.w700);
   static const h4regular = TextStyle(
       fontSize: 22, fontFamily: 'Nunito', fontWeight: FontWeight.w400);
   static const h4medium = TextStyle(
