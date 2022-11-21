@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// reuseable textfield
 class CustomTextField extends StatelessWidget {
   final TextEditingController textEditingController;
   final String hintText;
