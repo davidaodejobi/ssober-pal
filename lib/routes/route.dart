@@ -1,10 +1,11 @@
 import 'package:addictionsupportroom/routes/error404.dart';
+
 import 'package:addictionsupportroom/view/home/screens/dailey_notes.dart';
 import 'package:addictionsupportroom/view/notifications/screens/notifications_screen.dart';
 import 'package:auto_route/auto_route.dart';
-
-import '../view/notifications/screens/notification_details_screen.dart';
-import '../view/shared/main_screen.dart';
+import 'package:addictionsupportroom/view/notifications/screens/notification_details_screen.dart';
+import 'package:addictionsupportroom/view/shared/main_screen.dart';
+import 'package:addictionsupportroom/testingpage.dart';
 
 @MaterialAutoRouter(
   routes: [
@@ -16,7 +17,7 @@ import '../view/shared/main_screen.dart';
         page: NotificationScreen,
         name: NotificationScreen.routeName,
         path: "/${NotificationScreen.routeName}"),
-    // MaterialRoute(page: AccountHome, name: "AccountHome", path: "/account"),
+
 //UnknownRoutePage here
     RedirectRoute(
       path: '*',
