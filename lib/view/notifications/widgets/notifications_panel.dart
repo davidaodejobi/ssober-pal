@@ -82,7 +82,9 @@ class NotificationItem extends StatelessWidget {
           child: Row(
             children: [
               SvgPicture.network(
-                  "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668784347/avatar-5_v1alhz.svg"),
+                  "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668784347/avatar-5_v1alhz.svg",
+                  width: 48,
+                  height: 48),
               SizedBox(
                 width: AppSpace.space12.width,
               ),
