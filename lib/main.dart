@@ -1,8 +1,7 @@
+import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
 import 'package:addictionsupportroom/routes/route.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
-import 'package:addictionsupportroom/routes/route.gr.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -13,7 +12,6 @@ class MyApp extends StatelessWidget {
   final appRouter = AppRouter();
   MyApp({super.key});
 
-  // This widget is the root of your application.
 
   @override
   Widget build(BuildContext context) {

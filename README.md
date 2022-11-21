@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # addictionsupportroom.mobile
 
 # Auto Route Guideline
@@ -57,7 +56,6 @@ flutter packages pub run build_runner watch
 if you want the generator to run one time and exits use
 
 flutter packages pub run build_runner build
-=======
 
 # SoberPal (Addiction Support System)
 
@@ -140,4 +138,3 @@ Insert gif or link to demo
 - Chatroom screen
 - Account Session screen
 
->>>>>>> e79c09c830d3a3645c1ba00e8d8ceb3ede96bad0
