@@ -1,70 +1,11 @@
-# addictionsupportroom.mobile
-
-# Auto Route Guideline
-
-## how to add Route to a the route.dart
-
-AutoRoute(path: '/example', page: examplepage)
-or
-MaterialRoute(path: '/example', page: examplepage)
-
-## more example
-
-routes: <AutoRoute>[
-//authentication routes
-AutoRoute(
-initial: true,
-path: '/login',
-page: LoginScreen,
-children: [
-RedirectRoute(path: '*', redirectTo: ''),
-],
-),
-AutoRoute(
-path: '/signup',
-page: SignupScreen,
-children: [
-RedirectRoute(path: '*', redirectTo: ''),
-],
-),
-
-    //user routes with a nested router
-    AutoRoute(
-      path: '/user',
-      page: UserScreen,
-      children: [
-        AutoRoute(path: '', page: UserProfileScreen),
-        AutoRoute(path: 'details/*', page: UserDetailsScreen),
-        AutoRoute(path: 'friends/*', page: UserFriendsScreen),
-        groupTabRouter,
-        // redirect all other paths
-        RedirectRoute(path: '*', redirectTo: ''),
-      ],
-    ),
-
-    // redirect all other paths
-    RedirectRoute(path: '*', redirectTo: '/login'),
-    //Home
-
-],
-
-https://pub.dev/packages/auto_route
-
-Use the [watch] flag to watch the files' system for edits and rebuild as necessary.
-
-flutter packages pub run build_runner watch
-if you want the generator to run one time and exits use
-
-flutter packages pub run build_runner build
-
 # SoberPal (Addiction Support System)
 
 A mobile App that helps addiction and mental health patient mitigate relapse using a push notifications/alert.
 
-
 ## Getting Started 🚀
 
-This projects use two major branch for managing the workflow. 
+This projects use two major branch for managing the workflow.
+
 - main branch : main branch is the branch where all the main development will occur
 - dev branch : dev branch is where most of the development process will be done
 
@@ -100,7 +41,6 @@ Run the project
   flutter run
 ```
 
-
 ## Architecture/Folder structure
 
 This project uses the basic MVC + S(Model, View, Controller, Services) pattern
@@ -112,23 +52,22 @@ This project uses the basic MVC + S(Model, View, Controller, Services) pattern
 
 ## Commits Guidelines
 
- All PRs must be according to the recommended naming convention. (https://www.conventionalcommits.org/en/v1.0.0/)
+All PRs must be according to the recommended naming convention. (https://www.conventionalcommits.org/en/v1.0.0/)
+
 ## Packages
 
-| Package             | Uses                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| provider | [provider](https://pub.dev/packages/provider) is the state management used in this project.|
-| cached_network_image | [cached_network_image](https://pub.dev/packages/cached_network_image) is a flutter library to show images from the internet and keep them in the cache directory. |
-| flutter_svg | [flutter_svg](https://pub.dev/packages/flutter_svg) is a flutter package that help draw SVG (and some Android VectorDrawable (XML)) files on a Flutter Widget. |
-| flutter_screenutil | [flutter_screenutil](https://pub.dev/packages/flutter_screenutil) is a a flutter plugin for adapting screen and font size.Let your UI display a reasonable layout on different screen sizes. |
-| auto_route | [auto_route](https://pub.dev/packages/auto_route) allows for strongly-typed arguments passing, effortless deep-linking.|
-| auto_route_generator | [auto_route_generator](https://pub.dev/packages/auto_route_generator) is a generator for auto_route library. |
-
+| Package              | Uses                                                                                                                                                                                         |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| provider             | [provider](https://pub.dev/packages/provider) is the state management used in this project.                                                                                                  |
+| cached_network_image | [cached_network_image](https://pub.dev/packages/cached_network_image) is a flutter library to show images from the internet and keep them in the cache directory.                            |
+| flutter_svg          | [flutter_svg](https://pub.dev/packages/flutter_svg) is a flutter package that help draw SVG (and some Android VectorDrawable (XML)) files on a Flutter Widget.                               |
+| flutter_screenutil   | [flutter_screenutil](https://pub.dev/packages/flutter_screenutil) is a a flutter plugin for adapting screen and font size.Let your UI display a reasonable layout on different screen sizes. |
+| go_router            | [go_router](https://pub.dev/packages/go_router) allows for strongly-typed arguments passing, effortless deep-linking.                                                                        |
+| auto_route_generator | [auto_route_generator](https://pub.dev/packages/auto_route_generator) is a generator for auto_route library.                                                                                 |
 
 ## Demo
 
 Insert gif or link to demo
-
 
 ## Roadmap
 
@@ -137,4 +76,3 @@ Insert gif or link to demo
 - Progress Section screen
 - Chatroom screen
 - Account Session screen
-
