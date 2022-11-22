@@ -1,7 +1,8 @@
 import 'package:addictionsupportroom/util/color.dart';
+import 'package:addictionsupportroom/view/notifications/screens/notifications_screen.dart';
+import 'package:addictionsupportroom/view/home/screens/home_screen.dart';
 import 'package:addictionsupportroom/view/progress_section/screen_1.dart';
 import 'package:flutter/material.dart';
-import 'package:addictionsupportroom/view/home/screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);

@@ -19,6 +19,7 @@ class AppText {
       fontSize: 28, fontFamily: 'Nunito', fontWeight: FontWeight.w500);
   static const h3bold = TextStyle(
       fontSize: 28, fontFamily: 'Nunito', fontWeight: FontWeight.w700);
+
   static const h4regular = TextStyle(
       fontSize: 22, fontFamily: 'Nunito', fontWeight: FontWeight.w400);
   static const h4medium = TextStyle(

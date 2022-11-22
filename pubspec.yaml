@@ -40,9 +40,13 @@ dependencies:
   go_router: ^5.2.0
 
 dev_dependencies:
+  auto_route_generator: ^5.0.3
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  build_runner: ^2.3.2
+ 
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
