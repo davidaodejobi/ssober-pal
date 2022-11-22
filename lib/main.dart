@@ -1,5 +1,6 @@
 import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
 import 'package:addictionsupportroom/routes/app_route.dart';
+import 'package:addictionsupportroom/routes/route.gr.dart';
 import 'package:addictionsupportroom/util/reuseables/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

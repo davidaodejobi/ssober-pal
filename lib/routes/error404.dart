@@ -21,14 +21,6 @@ class Error404Screen extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(
-            "assets/images/8_404Error.png",
-            fit: BoxFit.cover,
-          ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height * 0.15,
-            left: MediaQuery.of(context).size.width * 0.3,
-            right: MediaQuery.of(context).size.width * 0.3,
           Image.network(
             errorimage,
             fit: BoxFit.cover,
