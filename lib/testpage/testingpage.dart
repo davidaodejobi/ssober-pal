@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -10,6 +11,11 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text("Testing")));
+    return Scaffold(
+        body: GestureDetector(
+            onTap: () {
+              context.go("/testtwo");
+            },
+            child: const Center(child: Text("Testing"))));
   }
 }

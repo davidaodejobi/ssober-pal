@@ -1,5 +1,6 @@
 import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
-import 'package:addictionsupportroom/routes/route.gr.dart';
+import 'package:addictionsupportroom/routes/app_route.dart';
+import 'package:addictionsupportroom/util/reuseables/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -9,16 +10,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
+  final appRouter = AppRouter();
   MyApp({super.key});
 
-  final appRouter = AppRouter();
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-
       providers: [
         ChangeNotifierProvider(create: (context) => FeelingsController())
       ],
@@ -28,8 +26,9 @@ class MyApp extends StatelessWidget {
           812.0,
         ),
         builder: (context, index) => MaterialApp.router(
-          routerDelegate: appRouter.delegate(),
-          routeInformationParser: appRouter.defaultRouteParser(),
+          routeInformationProvider: router.routeInformationProvider,
+          routeInformationParser: router.routeInformationParser,
+          routerDelegate: router.routerDelegate,
           builder: (context, widget) {
             return MediaQuery(
               data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),

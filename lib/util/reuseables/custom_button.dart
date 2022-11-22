@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// reuseable button
 class CustomElevatedButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
   final Widget title;
