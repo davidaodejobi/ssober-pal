@@ -6,6 +6,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:addictionsupportroom/view/notifications/screens/notification_details_screen.dart';
 import 'package:addictionsupportroom/view/shared/main_screen.dart';
 import 'package:addictionsupportroom/testingpage.dart';
+import 'package:addictionsupportroom/view/home/screens/dailey_notes.dart';
+import 'package:addictionsupportroom/view/progress_section/screen_2.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:addictionsupportroom/testingpage.dart';
+import 'package:addictionsupportroom/view/shared/main_screen.dart';
 
 @MaterialAutoRouter(
   routes: [
@@ -18,7 +23,9 @@ import 'package:addictionsupportroom/testingpage.dart';
         name: NotificationScreen.routeName,
         path: "/${NotificationScreen.routeName}"),
 
+    // MaterialRoute(page: AccountHome, name: "AccountHome", path: "/account"),
 //UnknownRoutePage here
+    MaterialRoute(page: ScreenTwo, name: "Progress_screentwo", path: "/Progress_screen_two"),
     RedirectRoute(
       path: '*',
       redirectTo: '/error404',

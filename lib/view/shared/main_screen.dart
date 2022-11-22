@@ -1,8 +1,8 @@
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/view/notifications/screens/notifications_screen.dart';
+import 'package:addictionsupportroom/view/home/screens/home_screen.dart';
+import 'package:addictionsupportroom/view/progress_section/screen_1.dart';
 import 'package:flutter/material.dart';
-
-import '../home/screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -48,30 +48,23 @@ class _MainScreenState extends State<MainScreen> {
               .toList(),
         ),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 36),
-        child: Builder(builder: (context) {
-          switch (index) {
-            case 0:
-              return const Home();
-            case 1:
-              return const Center(
-                child: Text('Progress'),
-              );
-            case 2:
-              return const Center(
-                child: Text('Chat room'),
-              );
-            case 3:
-              return const Center(
-                child: Text('Account'),
-              );
-            case 4:
-              return const NotificationScreen();
-          }
-          return Container();
-        }),
-      ),
+      body: Builder(builder: (context) {
+        switch (index) {
+          case 0:
+            return const Home();
+          case 1:
+            return const ScreenOne();
+          case 2:
+            return const Center(
+              child: Text('Chat room'),
+            );
+          case 3:
+            return const Center(
+              child: Text('Account'),
+            );
+        }
+        return Container();
+      }),
     );
   }
 }

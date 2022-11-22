@@ -4,6 +4,8 @@ import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/text.dart';
 import 'package:addictionsupportroom/view/home/widgets/emoji.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
 
 class FeelingStatus extends StatelessWidget {
