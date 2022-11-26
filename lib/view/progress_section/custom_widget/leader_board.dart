@@ -20,25 +20,25 @@ class LeaderBoardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-         Navigator.push(context,
-                 MaterialPageRoute(builder: (context) => const ScreenThree()));
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ScreenThree()));
       },
       child: Container(
         height: 59.h,
         padding: EdgeInsets.only(left: 20.w, right: 20.w),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.r),
-            border: Border.all(width: 1, color: AppColor.primaryColor.shade100)),
+            border:
+                Border.all(width: 1, color: AppColor.primaryColor.shade100)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
               width: 130.w,
               child: Row(
-                //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                       height: 40.h,
                       width: 40.w,
                       child: SvgPicture.network(imageUrl)),

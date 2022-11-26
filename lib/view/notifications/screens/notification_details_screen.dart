@@ -19,8 +19,10 @@ class NotificationDetailsScreen extends StatelessWidget {
               NotificationDetailsHeader(),
               Expanded(
                   child: Text(
-                      """
-Even at your lower point of discouragement, you can still find the strength to overcome substance abuse as long as you take actionable steps to achieve this goal. Please don’t give up yet, it gets better everyday. We love you and we will always support you no matter the decision you make for yourself.""",style: AppText.paragraph2regular,))
+                """
+Even at your lower point of discouragement, you can still find the strength to overcome substance abuse as long as you take actionable steps to achieve this goal. Please don’t give up yet, it gets better everyday. We love you and we will always support you no matter the decision you make for yourself.""",
+                style: AppText.paragraph2regular,
+              ))
             ],
           ),
         ));
@@ -47,7 +49,7 @@ class NotificationDetailsHeader extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Text(
                 "Frog",
                 style: AppText.h6medium,
@@ -59,10 +61,10 @@ class NotificationDetailsHeader extends StatelessWidget {
               Text("2022", style: AppText.paragraph1regular)
             ],
           ),
-          Spacer(
+          const Spacer(
             flex: 1,
           ),
-          Text("Just now")
+          const Text("Just now")
         ],
       ),
     );

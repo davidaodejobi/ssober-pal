@@ -60,12 +60,10 @@ class NotificationScreen extends StatelessWidget {
                 const Spacer(flex: 1)
               ],
             ),
-            Expanded(child: NotificationsPanel()),
+            const Expanded(child: NotificationsPanel()),
           ],
         ),
       ),
     );
   }
 }
-
-

@@ -1,19 +1,20 @@
-import 'package:flutter/material.dart';
-
 class AppStrings {
   static const soberPal = 'SoberPal';
   static const addictionToRecovery = 'Addiction to Recovery';
-  static const startYourRecoveryJourney = 'Start your recovery journey with one step at a time and one less bottle a day.';
+  static const startYourRecoveryJourney =
+      'Start your recovery journey with one step at a time and one less bottle a day.';
   static const skip = 'Skip';
   static const next = 'Next';
   static const shareYourJourney = 'Share Your Journey';
-  static const shareYourJourneyAnonymously = 'Share your journey anonymously to encourage others on their journey and help prevent a relapse.';
+  static const shareYourJourneyAnonymously =
+      'Share your journey anonymously to encourage others on their journey and help prevent a relapse.';
   static const startYourSober = 'Start your sober journey';
   static const setNickname = 'Set nickname';
   static const lion = 'Lion';
   static const enterNickname = 'Enter Nickname';
   static const save = 'Save';
-  static const howManyBottlesInWeek = 'How many  bottles do you take in a week ?';
+  static const howManyBottlesInWeek =
+      'How many  bottles do you take in a week ?';
   static const enterTheNumber = 'Enter the number of bottles';
   static const continueToHomeScreen = 'Continue to homescreen';
   static const helloDolphin = 'Hello, Dolphin!';
@@ -35,11 +36,15 @@ class AppStrings {
   static const home = 'Home';
   static const chatRoom = 'Chat Room';
   static const account = 'Account';
-  static const recoveryIsAJourneyAnd = '“Recovery is a journey, and that means there will be bumps along the way. It’s about progress not perfection.”';
+  static const recoveryIsAJourneyAnd =
+      '“Recovery is a journey, and that means there will be bumps along the way. It’s about progress not perfection.”';
   static const beHappyAndKeep = '“Be happy and keep crushing your goals”';
-  static const youHaveComeThisFar = '“You have come this far, we are so proud of your progress, the sky is your limit & I am certain your future self will thank you.”';
-  static const itDoesntMatterHow = '“It deoesn’t matter how slow you go, as long as you don’t stop, You are not alone.”';
-  static const andIfTodayAll = '“And if today all you did was hold yourself together, I’m proud of you.”';
+  static const youHaveComeThisFar =
+      '“You have come this far, we are so proud of your progress, the sky is your limit & I am certain your future self will thank you.”';
+  static const itDoesntMatterHow =
+      '“It deoesn’t matter how slow you go, as long as you don’t stop, You are not alone.”';
+  static const andIfTodayAll =
+      '“And if today all you did was hold yourself together, I’m proud of you.”';
   static const dailyNotes = 'Daily Notes';
   static const myNotes = 'My notes';
   static const writeYourThoughts = 'Write your thoughts and feelings';
@@ -57,7 +62,8 @@ class AppStrings {
   static const nov13 = 'Nov. 13';
   static const youHaveReachedThe = 'You have reached the';
   static const day7Milestone = '7 Day Milestone';
-  static const keepItUp = 'Keep it up! you’re just 23 days away from your next milestone';
+  static const keepItUp =
+      'Keep it up! you’re just 23 days away from your next milestone';
   static const leaderBoard = 'Leader Board';
   static const november2022 = 'NOVEMBER 2022';
   static const tookABottle = 'Took a bottle  ';
@@ -105,5 +111,4 @@ class AppStrings {
   static const howManyBottlesToday = 'How many bottles did you drink today ?';
   static const continuee = 'Continue';
   static const leadershipBoard = 'Leaderboard';
-
 }

@@ -1,6 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'package:auto_route/auto_route.dart';
+import 'package:addictionsupportroom/view/notifications/screens/notification_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:addictionsupportroom/util/text.dart';
@@ -45,7 +43,16 @@ class NotificationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => AutoRouter.of(context).pushNamed("/notification_details"),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) {
+              return const NotificationDetailsScreen();
+            }),
+          ),
+        );
+      },
       child: Dismissible(
         key: key!,
         confirmDismiss: (direction) async => false,
@@ -55,9 +62,9 @@ class NotificationItem extends StatelessWidget {
           color: Theme.of(context).errorColor,
           alignment: Alignment.centerLeft,
           child: TextButton.icon(
-              label: Text("Delete"),
-              icon: Icon(Icons.delete),
-              style: ButtonStyle(
+              label: const Text("Delete"),
+              icon: const Icon(Icons.delete),
+              style: const ButtonStyle(
                   foregroundColor: MaterialStatePropertyAll(Colors.white),
                   textStyle: MaterialStatePropertyAll(AppText.h5medium)),
               onPressed: null),
@@ -68,15 +75,15 @@ class NotificationItem extends StatelessWidget {
           color: AppColor.successColor,
           alignment: Alignment.centerRight,
           child: TextButton.icon(
-              label: Text("Read"),
-              icon: Icon(Icons.mark_email_read_rounded),
+              label: const Text("Read"),
+              icon: const Icon(Icons.mark_email_read_rounded),
               style: ButtonStyle(
-                  foregroundColor: MaterialStatePropertyAll(Colors.white),
+                  foregroundColor: const MaterialStatePropertyAll(Colors.white),
                   textStyle: MaterialStatePropertyAll(
                       AppText.h5medium.copyWith(color: Colors.white))),
               onPressed: null),
         ),
-        child: Container(
+        child: SizedBox(
           height: AppSpace.space80.height,
           width: double.infinity,
           child: Row(
@@ -92,23 +99,23 @@ class NotificationItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Frog",
                     style: AppText.h6medium,
                   ),
                   SizedBox(
                     height: AppSpace.space8.height,
                   ),
-                  Text(
+                  const Text(
                     "Frog just sent you a message",
                     style: AppText.paragraph1regular,
                   ),
                 ],
               ),
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
-              Text("Just now")
+              const Text("Just now")
             ],
           ),
         ),

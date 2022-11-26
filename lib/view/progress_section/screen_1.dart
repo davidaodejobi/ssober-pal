@@ -1,7 +1,7 @@
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/reuseables/custom_text.dart';
 import 'package:addictionsupportroom/util/reuseables/strings_manager.dart';
-import 'package:auto_route/auto_route.dart';
+import 'package:addictionsupportroom/view/progress_section/screen_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -75,9 +75,9 @@ class ScreenOne extends StatelessWidget {
           SizedBox(height: 20.h),
           GestureDetector(
             onTap: () {
-             // Navigator.push(context,
-                //  MaterialPageRoute(builder: (context) => const ScreenTwo()));
-                AutoRouter.of(context).pushNamed('/Progress_screen_two');
+             Navigator.push(context,
+                 MaterialPageRoute(builder: (context) => const ScreenTwo(),));
+                
             },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
@@ -95,7 +95,7 @@ class ScreenOne extends StatelessWidget {
                       text: AppStrings.leaderBoard,
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w400),
-                  Container(
+                  SizedBox(
                       height: 18.5.h,
                       width: 18.5.w,
                       child: SvgPicture.network(

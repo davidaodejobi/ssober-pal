@@ -48,7 +48,7 @@ class ScreenThree extends StatelessWidget {
                      BoxShadow(
                      color: AppColor.grayColor.shade300.withOpacity(0.8),
                       blurRadius: 5,
-                      offset: Offset(2, 2)
+                      offset: const Offset(2, 2)
                     )
                   ]
                 ),

@@ -2,9 +2,9 @@ import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/spacing.dart';
 import 'package:addictionsupportroom/util/text.dart';
+import 'package:addictionsupportroom/view/home/screens/dailey_notes.dart';
 import 'package:addictionsupportroom/view/home/widgets/status.dart';
 import 'package:addictionsupportroom/view/notifications/screens/notifications_screen.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import 'package:addictionsupportroom/view/shared/progress_widget.dart';
@@ -28,8 +28,12 @@ class Home extends StatelessWidget {
             children: [
               const Text('Hello, Dolphin!', style: AppText.h4medium),
               IconButton(
-                  onPressed: () => AutoRouter.of(context)
-                      .pushNamed("/${NotificationScreen.routeName}"),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return const NotificationScreen();
+                    })));
+                  },
                   icon: const Icon(Icons.notifications_outlined))
             ],
           ),
@@ -47,7 +51,9 @@ class Home extends StatelessWidget {
           InkWell(
             onTap: () {
               Provider.of<FeelingsController>(context, listen: false).clear();
-              AutoRouter.of(context).pushNamed('/dailynotes');
+              Navigator.push(context, MaterialPageRoute(builder: ((context) {
+                return const DailyNotes();
+              })));
             },
             child: Container(
                 width: MediaQuery.of(context).size.width,
