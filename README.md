@@ -79,4 +79,3 @@ Insert gif or link to demo
 - Progress Section screen
 - Chatroom screen
 - Account Session screen
-

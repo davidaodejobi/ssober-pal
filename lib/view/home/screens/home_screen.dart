@@ -82,11 +82,12 @@ class Home extends StatelessWidget {
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(24)),
-                backgroundColor: AppColor.errorColor.shade500,
-                minimumSize: const Size.fromHeight(50),
-                padding: const EdgeInsets.all(10)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24)),
+              backgroundColor: AppColor.errorColor.shade500,
+              minimumSize: const Size.fromHeight(50),
+              padding: const EdgeInsets.all(10),
+            ),
             child: const Text('Help! I\'m about to relapse'),
           )
         ],

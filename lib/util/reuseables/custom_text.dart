@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-enum AlignPosition{
+enum AlignPosition {
   start,
   center,
   end,
-
 }
 
 // reuseable text widget
@@ -18,18 +17,23 @@ class CustomTextWidget extends StatelessWidget {
 
   const CustomTextWidget(
       {Key? key,
-        required this.text,
-        this.fontSize = 14,
-        this.textColor = const Color.fromRGBO(79, 79, 79, 1),
-        this.fontWeight = FontWeight.w400,
-        this.overflow = TextOverflow.ellipsis, this.alignment = "start"})
+      required this.text,
+      this.fontSize = 14,
+      this.textColor = const Color.fromRGBO(79, 79, 79, 1),
+      this.fontWeight = FontWeight.w400,
+      this.overflow = TextOverflow.ellipsis,
+      this.alignment = "start"})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: alignment == "end" ? TextAlign.end : alignment == "center" ? TextAlign.center : TextAlign.start,
+      textAlign: alignment == "end"
+          ? TextAlign.end
+          : alignment == "center"
+              ? TextAlign.center
+              : TextAlign.start,
       style: TextStyle(
         fontSize: fontSize,
         color: textColor,
@@ -51,4 +55,3 @@ class FontWeightManager {
   static const FontWeight regular = FontWeight.w400;
   static const FontWeight light = FontWeight.w300;
 }
-

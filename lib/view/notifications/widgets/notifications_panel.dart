@@ -25,9 +25,7 @@ class TimeNotificationsBox extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const Text("Today"),
-        SizedBox(
-          height: AppSpace.space12.height,
-        ),
+        AppSpace.vertical12,
         NotificationItem(
           key: UniqueKey(), //todo:change this later
         ),

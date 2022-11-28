@@ -1,4 +1,5 @@
 import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
+import 'package:addictionsupportroom/controller/home/note_controller.dart';
 import 'package:addictionsupportroom/routes/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => FeelingsController())
+        ChangeNotifierProvider(create: (context) => FeelingsController()),
+        ChangeNotifierProvider(create: (context) => NoteProvider()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(

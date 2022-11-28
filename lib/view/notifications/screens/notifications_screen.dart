@@ -30,9 +30,10 @@ class NotificationScreen extends StatelessWidget {
                 const Spacer(flex: 1),
                 TextButton(
                   style: const ButtonStyle(
-                      foregroundColor: MaterialStatePropertyAll(Colors.black),
-                      textStyle: MaterialStatePropertyAll<TextStyle>(
-                          AppText.h6medium)),
+                    foregroundColor: MaterialStatePropertyAll(Colors.black),
+                    textStyle:
+                        MaterialStatePropertyAll<TextStyle>(AppText.h6medium),
+                  ),
                   onPressed: () {},
                   child: const Text("Notifications"),
                 ),
@@ -48,19 +49,22 @@ class NotificationScreen extends StatelessWidget {
                 const Spacer(flex: 1),
                 TextButton(
                   style: ButtonStyle(
-                      foregroundColor:
-                          const MaterialStatePropertyAll(Colors.black),
-                      textStyle: MaterialStatePropertyAll<TextStyle>(
-                          AppText.paragraph2regular.copyWith(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.w400))),
+                    foregroundColor:
+                        const MaterialStatePropertyAll(Colors.black),
+                    textStyle: MaterialStatePropertyAll<TextStyle>(
+                      AppText.paragraph2regular.copyWith(
+                          color: Colors.blue, fontWeight: FontWeight.w400),
+                    ),
+                  ),
                   onPressed: () {},
                   child: const Text("Delete All"),
                 ),
                 const Spacer(flex: 1)
               ],
             ),
-            const Expanded(child: NotificationsPanel()),
+            const Expanded(
+              child: NotificationsPanel(),
+            ),
           ],
         ),
       ),

@@ -22,16 +22,19 @@ class ProgressWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               RichText(
-                  text: TextSpan(
-                      text: '57',
-                      style: AppText.h2medium
-                          .copyWith(color: AppColor.primaryColor.shade700),
-                      children: [
+                text: TextSpan(
+                  text: '57',
+                  style: AppText.h2medium
+                      .copyWith(color: AppColor.primaryColor.shade700),
+                  children: [
                     TextSpan(
-                        text: 'Total Clean Days',
-                        style: AppText.h6medium
-                            .copyWith(color: AppColor.primaryColor.shade700))
-                  ])),
+                      text: 'Total Clean Days',
+                      style: AppText.h6medium
+                          .copyWith(color: AppColor.primaryColor.shade700),
+                    )
+                  ],
+                ),
+              ),
               const Icon(
                 Icons.emoji_events,
                 size: 60,

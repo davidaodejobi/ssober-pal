@@ -1,5 +1,6 @@
 import 'package:addictionsupportroom/util/reuseables/custom_text.dart';
-import 'package:addictionsupportroom/view/progress_section/screen_3.dart';
+import 'package:addictionsupportroom/util/spacing.dart';
+import 'package:addictionsupportroom/view/progress_section/screens/screen_three.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,16 +22,23 @@ class LeaderBoardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ScreenThree()));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ScreenThree(),
+          ),
+        );
       },
       child: Container(
         height: 59.h,
         padding: EdgeInsets.only(left: 20.w, right: 20.w),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16.r),
-            border:
-                Border.all(width: 1, color: AppColor.primaryColor.shade100)),
+          borderRadius: BorderRadius.circular(16.r),
+          border: Border.all(
+            width: 1,
+            color: AppColor.primaryColor.shade100,
+          ),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -39,10 +47,11 @@ class LeaderBoardWidget extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(
-                      height: 40.h,
-                      width: 40.w,
-                      child: SvgPicture.network(imageUrl)),
-                  SizedBox(width: 20.w),
+                    height: 40.h,
+                    width: 40.w,
+                    child: SvgPicture.network(imageUrl),
+                  ),
+                  AppSpace.horizontal20,
                   CustomTextWidget(
                     text: text,
                     fontSize: 14.sp,
