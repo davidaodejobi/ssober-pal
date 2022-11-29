@@ -1,6 +1,8 @@
 import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
-import 'package:addictionsupportroom/controller/home/note_controller.dart';
+import 'package:addictionsupportroom/controller/chat/tab_bar_controller.dart';
 import 'package:addictionsupportroom/routes/app_route.dart';
+
+import 'package:addictionsupportroom/controller/home/note_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +19,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => FeelingsController()),
+        ChangeNotifierProvider<TabBarController>(
+            create: (context) => TabBarController()),
         ChangeNotifierProvider(create: (context) => NoteProvider()),
       ],
       child: ScreenUtilInit(

@@ -1,7 +1,7 @@
 name: addictionsupportroom
 description: A new Flutter project.
 
-publish_to: "none" 
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -27,16 +27,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
-
 flutter:
-
-
   uses-material-design: true
 
-#  assets:
-#     - splash_screen_image/
-
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/img/
+  #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
@@ -46,7 +43,6 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-
 
   fonts:
     - family: Nunito

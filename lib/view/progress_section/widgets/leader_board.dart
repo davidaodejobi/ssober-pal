@@ -4,7 +4,7 @@ import 'package:addictionsupportroom/view/progress_section/screens/screen_three.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../util/color.dart';
+import 'package:addictionsupportroom/util/color.dart';
 
 class LeaderBoardWidget extends StatelessWidget {
   const LeaderBoardWidget(

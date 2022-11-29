@@ -4,7 +4,7 @@ import 'package:addictionsupportroom/util/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../util/color.dart';
+import 'package:addictionsupportroom/util/color.dart';
 
 class ScreenThree extends StatelessWidget {
   const ScreenThree({Key? key}) : super(key: key);

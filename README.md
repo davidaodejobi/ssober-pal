@@ -41,7 +41,6 @@ Run the project
   flutter run
 ```
 
-
 ## Architecture/Folder structure
 
 This project uses the basic MVC + S(Model, View, Controller, Services) pattern
@@ -66,11 +65,9 @@ All PRs must be according to the recommended naming convention. (https://www.con
 | go_router            | [go_router](https://pub.dev/packages/go_router) allows for strongly-typed arguments passing, effortless deep-linking.                                                                        |
 | auto_route_generator | [auto_route_generator](https://pub.dev/packages/auto_route_generator) is a generator for auto_route library.                                                                                 |
 
-
 ## Demo
 
 Insert gif or link to demo
-
 
 ## Roadmap
 

@@ -7,8 +7,14 @@ class AppColor {
   static const Color kErrorColor = Color(0xFFda2525);
   static const Color kGrayColor = Color(0xFF575757);
   static const Color kWarningColor = Color(0xFFe7b913);
+  static const Color kBlackColor = Color(0xFF000000);
+  static const Color kSecondaryBlackColor = Color(0xFF1C1A1A);
+  static const Color kWhiteColor = Color(0xFFFFFFFF);
+  static const Color kDarkBlueColor = Color(0xFF0E8ACB);
+  static const Color kDarkRedColor = Color(0xFFF21F1F);
 
   //Shades of Primary colors
+
   static const primaryColor = MaterialColor(
     0xff204e65,
     {
