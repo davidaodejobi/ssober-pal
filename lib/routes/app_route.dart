@@ -1,8 +1,8 @@
 import 'package:addictionsupportroom/view/chat/screens/call_a_member.dart';
 import 'package:addictionsupportroom/view/chat/screens/chat_profile.dart';
 import 'package:addictionsupportroom/view/chat/screens/indivdual_chat.dart';
-import 'package:addictionsupportroom/view/intro_screen.dart';
 import 'package:addictionsupportroom/view/notifications/screens/notifications_screen.dart';
+import 'package:addictionsupportroom/view/onboarding_screen/screens/onboarding_screen.dart';
 import 'package:addictionsupportroom/view/progress_section/screen_two.dart';
 import 'package:addictionsupportroom/routes/error404.dart';
 import 'package:addictionsupportroom/view/shared/main_screen.dart';
@@ -16,7 +16,7 @@ final router = GoRouter(
     GoRoute(
       name: 'onboarding',
       path: "/",
-      builder: (context, state) => const IntroScreen(),
+      builder: (context, state) => OnbaordingScreen(),
     ),
     GoRoute(
       name: 'home',

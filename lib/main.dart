@@ -49,6 +49,14 @@ class MyApp extends StatelessWidget {
               elevation: 0,
               centerTitle: true,
             ),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.kDarkBlueColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
             primarySwatch: Colors.blue,
           ),
         ),
