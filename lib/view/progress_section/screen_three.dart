@@ -37,50 +37,53 @@ class ScreenThree extends StatelessWidget {
           ),
           AppSpace.space32,
           Expanded(
-              child: ListView(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            children: [
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
+            child: ListView(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
                           color: AppColor.grayColor.shade300.withOpacity(0.8),
                           blurRadius: 5,
-                          offset: const Offset(2, 2))
-                    ]),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        RichText(
-                            text: const TextSpan(
-                                text: 'November',
-                                style: AppText.paragraph2regular,
-                                children: [
-                              TextSpan(
-                                  text: ' is 9% less than last month',
-                                  style: AppText.paragraph1regular)
-                            ])),
-                        AppSpace.space12,
-                        const Icon(
-                          Icons.arrow_downward,
-                          // size: 60,
+                          offset: const Offset(2, 2),
                         )
-                      ],
-                    ),
-                    Text(
-                      "12days Left",
-                      style: AppText.paragraph1medium.copyWith(fontSize: 10),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ))
+                      ]),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          RichText(
+                            text: const TextSpan(
+                              text: 'November',
+                              style: AppText.paragraph2regular,
+                              children: [
+                                TextSpan(
+                                    text: ' is 9% less than last month',
+                                    style: AppText.paragraph1regular)
+                              ],
+                            ),
+                          ),
+                          AppSpace.space12,
+                          const Icon(
+                            Icons.arrow_downward,
+                          )
+                        ],
+                      ),
+                      Text(
+                        "12days Left",
+                        style: AppText.paragraph1medium.copyWith(fontSize: 10),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );

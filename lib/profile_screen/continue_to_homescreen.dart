@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 
 class ContinueToHomescreen extends StatefulWidget {
   const ContinueToHomescreen({Key? key}) : super(key: key);
@@ -19,14 +20,15 @@ class _ContinueToHomescreenState extends State<ContinueToHomescreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Center(
-                child: Text(
-              "How many bottles do you take in a week ?",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 27,
+              child: Text(
+                "How many bottles do you take in a week ?",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 27,
+                ),
               ),
-            )),
+            ),
             const SizedBox(
               height: 5,
             ),
@@ -35,14 +37,17 @@ class _ContinueToHomescreenState extends State<ContinueToHomescreen> {
               child: TextField(
                 keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                  FilteringTextInputFormatter.allow(
+                    RegExp(r'[0-9]'),
+                  ),
                   FilteringTextInputFormatter.digitsOnly
                 ],
                 decoration: InputDecoration(
-                    hintText: 'Enter Number of bottles',
-                    border: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Colors.deepPurple.shade400))),
+                  hintText: 'Enter Number of bottles',
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepPurple.shade400),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -52,12 +57,17 @@ class _ContinueToHomescreenState extends State<ContinueToHomescreen> {
               height: 40,
               width: 350,
               child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16))),
-                  onPressed: () {},
-                  child: const Text("Continue to Homescreen")),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+                onPressed: () {
+                  context.go('/main_screen');
+                },
+                child: const Text("Continue to Homescreen"),
+              ),
             )
           ],
         ),

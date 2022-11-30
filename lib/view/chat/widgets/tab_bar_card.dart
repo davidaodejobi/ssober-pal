@@ -24,7 +24,9 @@ class TabBarCard extends StatelessWidget {
           margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: cardColor,
-            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(8),
+            ),
           ),
           child: Center(
             child: Text(

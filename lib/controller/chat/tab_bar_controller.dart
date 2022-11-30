@@ -7,6 +7,17 @@ class TabBarController with ChangeNotifier {
   Tabs get currentTab => _currentTab;
   bool _hasTyped = false;
   bool get hasTyped => _hasTyped;
+  bool _individualHasTyped = false;
+  bool get individualHasTyped => _individualHasTyped;
+
+  individualTyping(String text) {
+    if (text.isNotEmpty) {
+      _individualHasTyped = true;
+    } else {
+      _individualHasTyped = false;
+    }
+    notifyListeners();
+  }
 
   typing(String query) {
     if (query.isNotEmpty) {

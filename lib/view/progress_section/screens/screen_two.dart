@@ -37,8 +37,9 @@ class ScreenTwo extends StatelessWidget {
                     child: Row(
                       children: [
                         SizedBox(
-                            child: SvgPicture.network(
-                                "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783747/leatherboard-ranking_gcgmaa.svg")),
+                          child: SvgPicture.network(
+                              "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783747/leatherboard-ranking_gcgmaa.svg"),
+                        ),
                         AppSpace.horizontal8,
                         CustomTextWidget(
                           text: AppStrings.leaderBoard,

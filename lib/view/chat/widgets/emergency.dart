@@ -1,9 +1,9 @@
 import 'package:addictionsupportroom/util/color.dart';
+import 'package:addictionsupportroom/util/spacing.dart';
 import 'package:addictionsupportroom/util/text.dart';
-import 'package:addictionsupportroom/view/chat/screens/call_a_member_screen.dart';
-import 'package:addictionsupportroom/view/chat/screens/profile_chat_screen.dart';
 import 'package:addictionsupportroom/view/chat/widgets/icon_with_circular_border.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Emergency extends StatelessWidget {
   const Emergency({
@@ -29,93 +29,84 @@ class Emergency extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
-        for (var i = 0; i < 5; i++)
-          Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (contex) =>
-                                        const ProfileChatScreen()));
-                          },
-                          child: const CircleAvatar(
-                            radius: 28,
-                            backgroundColor: AppColor.secondaryColor,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Text('Jargur', style: AppText.paragraph1bold),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        IconWithCircularBorder(
-                          color: AppColor.primaryColor.shade200,
-                          size: 40,
-                          child: const Icon(
-                            Icons.mic_none_outlined,
-                            color: AppColor.grayColor,
-                            size: 28,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        IconWithCircularBorder(
-                          color: AppColor.primaryColor.shade200,
-                          size: 40,
-                          child: const Icon(
-                            Icons.chat_bubble_outline,
-                            color: AppColor.grayColor,
-                            size: 28,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (contex) =>
-                                        const CallAMemeberScreen()));
-                          },
-                          child: IconWithCircularBorder(
-                            color: AppColor.primaryColor.shade200,
-                            size: 40,
-                            child: const Icon(
-                              Icons.phone_outlined,
-                              color: AppColor.grayColor,
-                              size: 28,
+        AppSpace.vertical8,
+        Expanded(
+          child: ListView.builder(
+              itemBuilder: (context, index) => Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () => context
+                                      .goNamed('/main_screen/chat_profile'),
+                                  child: const CircleAvatar(
+                                    radius: 28,
+                                    backgroundColor: AppColor.secondaryColor,
+                                  ),
+                                ),
+                                AppSpace.horizontal8,
+                                const Text(
+                                  'Jargur',
+                                  style: AppText.paragraph1bold,
+                                ),
+                              ],
                             ),
-                          ),
+                            Row(
+                              children: [
+                                IconWithCircularBorder(
+                                  onTap: () {},
+                                  color: AppColor.primaryColor.shade200,
+                                  size: 40,
+                                  child: const Icon(
+                                    Icons.mic_none_outlined,
+                                    color: AppColor.grayColor,
+                                    size: 28,
+                                  ),
+                                ),
+                                AppSpace.horizontal8,
+                                IconWithCircularBorder(
+                                  onTap: () {},
+                                  color: AppColor.primaryColor.shade200,
+                                  size: 40,
+                                  child: const Icon(
+                                    Icons.chat_bubble_outline,
+                                    color: AppColor.grayColor,
+                                    size: 28,
+                                  ),
+                                ),
+                                AppSpace.horizontal8,
+                                GestureDetector(
+                                  onTap: () => context
+                                      .goNamed('/main_screen/call_a_member'),
+                                  child: IconWithCircularBorder(
+                                    onTap: () {},
+                                    color: AppColor.primaryColor.shade200,
+                                    size: 40,
+                                    child: const Icon(
+                                      Icons.phone_outlined,
+                                      color: AppColor.grayColor,
+                                      size: 28,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                color: AppColor.grayColor.shade100,
-                thickness: 1,
-              ),
-            ],
-          )
+                      ),
+                      Divider(
+                        color: AppColor.grayColor.shade100,
+                        thickness: 1,
+                      ),
+                    ],
+                  ),
+              itemCount: 10),
+        ),
       ],
     );
   }

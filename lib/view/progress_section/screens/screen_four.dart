@@ -68,9 +68,11 @@ class ScreenFour extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Text("NOVEMBER 2022",
-                            style: AppText.h6bold.copyWith(
-                                color: AppColor.primaryColor.shade400)),
+                        Text(
+                          "NOVEMBER 2022",
+                          style: AppText.h6bold
+                              .copyWith(color: AppColor.primaryColor.shade400),
+                        ),
                         CircleAvatar(
                           backgroundColor: AppColor.primaryColor.shade500,
                           maxRadius: 11,

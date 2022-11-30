@@ -16,8 +16,9 @@ class MyNotesButton extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: AppColor.secondaryColor.shade50)),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: AppColor.secondaryColor.shade50),
+          ),
           child: Column(
             children: const [
               Text('My notes', style: AppText.text1regular),

@@ -1,3 +1,6 @@
+import 'package:addictionsupportroom/view/chat/screens/call_a_member.dart';
+import 'package:addictionsupportroom/view/chat/screens/chat_profile.dart';
+import 'package:addictionsupportroom/view/chat/screens/indivdual_chat.dart';
 import 'package:addictionsupportroom/view/intro_screen.dart';
 import 'package:addictionsupportroom/view/notifications/screens/notifications_screen.dart';
 import 'package:addictionsupportroom/view/progress_section/screen_two.dart';
@@ -35,6 +38,25 @@ final router = GoRouter(
       name: "screen_two",
       path: '/screen_two',
       builder: (context, state) => const ScreenTwo(),
+    ),
+    GoRoute(
+      name: "main_screen",
+      path: '/main_screen',
+      builder: (context, state) => const MainScreen(),
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'profile_chat',
+          builder: (context, state) => const ChatProfile(),
+        ),
+        GoRoute(
+          path: 'individual_chat',
+          builder: (context, state) => const IndivdualChat(),
+        ),
+        GoRoute(
+          path: 'call_a_member',
+          builder: (context, state) => const CallAMemeber(),
+        ),
+      ],
     ),
   ],
   errorBuilder: (context, state) => const Error404Screen(),

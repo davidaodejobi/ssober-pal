@@ -15,88 +15,81 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.all(12).copyWith(top: 40),
-          child: SingleChildScrollView(
-            child: Column(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: GestureDetector(
+        onTap: () =>
+            Provider.of<FeelingsController>(context, listen: false).clear(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                  onTap: () =>
-                      Provider.of<FeelingsController>(context, listen: false)
-                          .clear(),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text('Hello, Dolphin!',
-                              style: AppText.h4medium),
-                          IconButton(
-                            onPressed: () => context.goNamed("notifications"),
-                            icon: const Icon(Icons.notifications_outlined),
-                          )
-                        ],
-                      ),
-                      AppSpace.vertical16,
-                      const ProgressWidget(),
-                      AppSpace.vertical24,
-                      Text(
-                        'How are you feeling today?',
-                        style: AppText.paragraph1medium
-                            .copyWith(color: AppColor.grayColor.shade800),
-                      ),
-                      AppSpace.vertical12,
-                      const FeelingStatus(),
-                      AppSpace.vertical48,
-                      InkWell(
-                        onTap: () {
-                          Provider.of<FeelingsController>(context,
-                                  listen: false)
-                              .clear();
-                          context.goNamed("notifications");
-                        },
-                        child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                    width: 0.5, color: AppColor.kPrimaryColor)),
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  Icons.calendar_month_outlined,
-                                  color: AppColor.kPrimaryColor,
-                                ),
-                                AppSpace.vertical8,
-                                Text(
-                                  'Write a note about how you feel today',
-                                  style: AppText.paragraph2medium
-                                      .copyWith(color: AppColor.kPrimaryColor),
-                                ),
-                              ],
-                            )),
-                      ),
-                      AppSpace.vertical24,
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24)),
-                            backgroundColor: AppColor.errorColor.shade500,
-                            minimumSize: const Size.fromHeight(50),
-                            padding: const EdgeInsets.all(10)),
-                        child: const Text('Help! I\'m about to relapse'),
-                      )
-                    ],
-                  ),
+                const Text('Hello, Dolphin!', style: AppText.h4medium),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.notifications_outlined),
                 ),
               ],
             ),
-          ),
+            AppSpace.space16,
+            const ProgressWidget(),
+            AppSpace.space24,
+            Text(
+              'How are you feeling today?',
+              style: AppText.paragraph1medium
+                  .copyWith(color: AppColor.grayColor.shade800),
+            ),
+            AppSpace.space12,
+            const FeelingStatus(),
+            AppSpace.space48,
+            InkWell(
+              onTap: () {
+                Provider.of<FeelingsController>(context, listen: false).clear();
+                context.goNamed("notifications");
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(width: 0.5, color: AppColor.kPrimaryColor),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.calendar_month_outlined,
+                      color: AppColor.kPrimaryColor,
+                    ),
+                    AppSpace.space8,
+                    Expanded(
+                      child: Text(
+                        'Write a note about how you feel today',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppText.paragraph2medium
+                            .copyWith(color: AppColor.kPrimaryColor),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            AppSpace.space32,
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                backgroundColor: AppColor.errorColor.shade500,
+                minimumSize: const Size.fromHeight(50),
+                padding: const EdgeInsets.all(10),
+              ),
+              child: const Text('Help! I\'m about to relapse'),
+            )
+          ],
         ),
       ),
     );

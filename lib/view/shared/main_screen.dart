@@ -1,7 +1,8 @@
 import 'package:addictionsupportroom/util/color.dart';
-import 'package:addictionsupportroom/view/home/screens/home_screen.dart';
+import 'package:addictionsupportroom/view/chat/screens/chat.dart';
 import 'package:addictionsupportroom/view/progress_section/screens/screen_one.dart';
 import 'package:flutter/material.dart';
+import 'package:addictionsupportroom/view/home/screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -42,31 +43,27 @@ class _MainScreenState extends State<MainScreen> {
           unselectedItemColor: AppColor.grayColor.shade100,
           selectedItemColor: AppColor.grayColor.shade50,
           items: navItems
-              .map((item) => BottomNavigationBarItem(
-                  icon: Icon(item['icon']),
-                  label: item['label'],
-                  backgroundColor: Colors.transparent))
+              .map(
+                (item) => BottomNavigationBarItem(
+                    icon: Icon(item['icon']),
+                    label: item['label'],
+                    backgroundColor: Colors.transparent),
+              )
               .toList(),
         ),
       ),
-      body: Builder(
-        builder: (context) {
-          switch (index) {
-            case 0:
-              return const Home();
-            case 1:
-              return const ScreenOne();
-            case 2:
-              return const Center(
-                child: Text('Chat room'),
-              );
-            case 3:
-              return const Center(
-                child: Text('Account'),
-              );
-          }
-          return Container();
-        },
+      body: SafeArea(
+        child: IndexedStack(
+          index: index,
+          children: const [
+            Home(),
+            ScreenOne(),
+            Chat(),
+            Center(
+              child: Text('Account'),
+            ),
+          ],
+        ),
       ),
     );
   }

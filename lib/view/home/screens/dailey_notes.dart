@@ -31,20 +31,23 @@ class DailyNotes extends StatelessWidget {
             const TextField(
               maxLines: 15,
               decoration: InputDecoration(
-                  hintText: 'Write text here...',
-                  hintStyle: AppText.text1regular,
-                  enabledBorder: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder()),
+                hintText: 'Write text here...',
+                hintStyle: AppText.text1regular,
+                enabledBorder: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(),
+              ),
             ),
             AppSpace.space32,
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.kPrimaryColor,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24)),
-                  minimumSize: const Size.fromHeight(50),
-                  padding: const EdgeInsets.all(10)),
+                backgroundColor: AppColor.kPrimaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                minimumSize: const Size.fromHeight(50),
+                padding: const EdgeInsets.all(10),
+              ),
               child: const Text('Save note'),
             )
           ],

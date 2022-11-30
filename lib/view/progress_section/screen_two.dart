@@ -38,8 +38,9 @@ class ScreenTwo extends StatelessWidget {
                     child: Row(
                       children: [
                         SizedBox(
-                            child: SvgPicture.network(
-                                "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783747/leatherboard-ranking_gcgmaa.svg")),
+                          child: SvgPicture.network(
+                              "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783747/leatherboard-ranking_gcgmaa.svg"),
+                        ),
                         SizedBox(width: 5.w),
                         CustomTextWidget(
                           text: AppStrings.leaderBoard,
@@ -76,7 +77,6 @@ class ScreenTwo extends StatelessWidget {
                   ),
                   SizedBox(height: 13.h),
                   SizedBox(
-                    // height: 440.h,
                     child: ListView(
                       shrinkWrap: true,
                       children: [

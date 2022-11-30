@@ -25,10 +25,11 @@ class _ProfileScreen2State extends State<ProfileScreen2> {
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               child: TextField(
                 decoration: InputDecoration(
-                    hintText: 'Enter Nickname',
-                    border: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Colors.deepPurple.shade400))),
+                  hintText: 'Enter Nickname',
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepPurple.shade400),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -38,17 +39,22 @@ class _ProfileScreen2State extends State<ProfileScreen2> {
               height: 40,
               width: 350,
               child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16))),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AvatarSelection()));
-                  },
-                  child: const Text("Set Nickname")),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AvatarSelection(),
+                    ),
+                  );
+                },
+                child: const Text("Set Nickname"),
+              ),
             )
           ],
         ),

@@ -17,7 +17,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _navigateHome() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const IntroScreen()));
+      context,
+      MaterialPageRoute(
+        builder: (context) => const IntroScreen(),
+      ),
+    );
   }
 
   @override
@@ -26,8 +30,9 @@ class _SplashScreenState extends State<SplashScreen> {
       home: Scaffold(
         body: Center(
           child: Image(
-              image: NetworkImage(
-                  "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783712/Soberpal_Logo_gtbs5w.svg")),
+            image: NetworkImage(
+                "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783712/Soberpal_Logo_gtbs5w.svg"),
+          ),
         ),
       ),
     );

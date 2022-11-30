@@ -47,9 +47,10 @@ class HistoryyWidget extends StatelessWidget {
                         .copyWith(color: AppColor.grayColor.shade900),
                     children: [
                       TextSpan(
-                          text: desc,
-                          style: AppText.paragraph1regular
-                              .copyWith(color: AppColor.grayColor.shade900))
+                        text: desc,
+                        style: AppText.paragraph1regular
+                            .copyWith(color: AppColor.grayColor.shade900),
+                      )
                     ],
                   ),
                 ),
@@ -83,8 +84,9 @@ class HistoryyWidget extends StatelessWidget {
                       const EdgeInsets.symmetric(vertical: 6, horizontal: 7),
                   height: 25,
                   decoration: BoxDecoration(
-                      color: AppColor.errorColor.shade100,
-                      borderRadius: BorderRadius.circular(16)),
+                    color: AppColor.errorColor.shade100,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                   child: Row(
                     children: [
                       CircleAvatar(
@@ -104,8 +106,9 @@ class HistoryyWidget extends StatelessWidget {
                       const EdgeInsets.symmetric(vertical: 6, horizontal: 7),
                   height: 25,
                   decoration: BoxDecoration(
-                      color: AppColor.successColor.shade100,
-                      borderRadius: BorderRadius.circular(16)),
+                    color: AppColor.successColor.shade100,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                   child: Row(
                     children: [
                       CircleAvatar(

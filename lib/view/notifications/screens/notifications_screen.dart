@@ -40,9 +40,11 @@ class NotificationScreen extends StatelessWidget {
                 const Spacer(flex: 7),
                 TextButton(
                   style: ButtonStyle(
-                      textStyle: MaterialStatePropertyAll<TextStyle>(AppText
-                          .paragraph2regular
-                          .copyWith(fontWeight: FontWeight.w400))),
+                    textStyle: MaterialStatePropertyAll<TextStyle>(
+                      AppText.paragraph2regular
+                          .copyWith(fontWeight: FontWeight.w400),
+                    ),
+                  ),
                   onPressed: () {},
                   child: const Text("Read All"),
                 ),
@@ -62,7 +64,9 @@ class NotificationScreen extends StatelessWidget {
                 const Spacer(flex: 1)
               ],
             ),
-            const Expanded(child: NotificationsPanel()),
+            const Expanded(
+              child: NotificationsPanel(),
+            ),
           ],
         ),
       ),

@@ -4,10 +4,10 @@ import 'package:addictionsupportroom/util/spacing.dart';
 import 'package:addictionsupportroom/util/text.dart';
 import 'package:flutter/material.dart';
 
-import 'call_a_member_screen.dart';
+import 'call_a_member.dart';
 
-class ProfileChatScreen extends StatelessWidget {
-  const ProfileChatScreen({super.key});
+class ChatProfile extends StatelessWidget {
+  const ChatProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -100,9 +100,11 @@ class ProfileChatScreen extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (contex) => const CallAMemeberScreen()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (contex) => const CallAMemeber(),
+                    ),
+                  );
                 },
                 child: CircularImage(
                   width: 56.0,
@@ -144,7 +146,9 @@ class CircularImage extends StatelessWidget {
       decoration: BoxDecoration(
         color: bgColor,
         border: border,
-        borderRadius: const BorderRadius.all(Radius.elliptical(100, 100)),
+        borderRadius: const BorderRadius.all(
+          Radius.elliptical(100, 100),
+        ),
       ),
       child: Center(
         child: child,

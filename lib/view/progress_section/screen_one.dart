@@ -18,7 +18,6 @@ class ScreenOne extends StatelessWidget {
         children: [
           Center(
             child: SizedBox(
-              // width:  38.w,
               height: 27.h,
               child: CustomTextWidget(
                 text: AppStrings.progress,
@@ -34,7 +33,6 @@ class ScreenOne extends StatelessWidget {
             height: 126.h,
             width: 343.w,
             decoration: BoxDecoration(
-              //  color: Colors.redAccent,
               borderRadius: BorderRadius.circular(16.r),
               image: const DecorationImage(
                   image: NetworkImage(
@@ -59,24 +57,24 @@ class ScreenOne extends StatelessWidget {
                 ),
                 SizedBox(height: 23.h),
                 Container(
-                    alignment: Alignment.center,
-                    height: 24.h,
-                    width: 338.w,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.r)),
-                    child: CustomTextWidget(
-                        text: AppStrings.keepItUp,
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500)),
+                  alignment: Alignment.center,
+                  height: 24.h,
+                  width: 338.w,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  child: CustomTextWidget(
+                      text: AppStrings.keepItUp,
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w500),
+                ),
               ],
             ),
           ),
           SizedBox(height: 20.h),
           GestureDetector(
             onTap: () {
-              // Navigator.push(context,
-              //  MaterialPageRoute(builder: (context) => const ScreenTwo()));
               context.goNamed('/Progress_screen_two');
             },
             child: Container(
@@ -84,10 +82,11 @@ class ScreenOne extends StatelessWidget {
               height: 32,
               width: 149,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8.r),
-                  border: Border.all(
-                      width: 1, color: AppColor.primaryColor.shade100)),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8.r),
+                border:
+                    Border.all(width: 1, color: AppColor.primaryColor.shade100),
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -96,10 +95,11 @@ class ScreenOne extends StatelessWidget {
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w400),
                   SizedBox(
-                      height: 18.5.h,
-                      width: 18.5.w,
-                      child: SvgPicture.network(
-                          "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783747/leatherboard-ranking_gcgmaa.svg"))
+                    height: 18.5.h,
+                    width: 18.5.w,
+                    child: SvgPicture.network(
+                        "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783747/leatherboard-ranking_gcgmaa.svg"),
+                  ),
                 ],
               ),
             ),
@@ -111,12 +111,13 @@ class ScreenOne extends StatelessWidget {
           SizedBox(height: 14.h),
           Expanded(
             child: SizedBox(
-                height: 360.h,
-                child: TableCalendar(
-                  firstDay: DateTime.utc(2012, 01, 10),
-                  lastDay: DateTime.utc(2030, 01, 10),
-                  focusedDay: DateTime.now(),
-                )),
+              height: 360.h,
+              child: TableCalendar(
+                firstDay: DateTime.utc(2012, 01, 10),
+                lastDay: DateTime.utc(2030, 01, 10),
+                focusedDay: DateTime.now(),
+              ),
+            ),
           ),
           SizedBox(height: 30.h),
           SizedBox(

@@ -77,8 +77,9 @@ class _ScreenOneState extends State<ScreenOne> {
                       alignment: Alignment.center,
                       width: 338.w,
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8.r)),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8.r),
+                      ),
                       child: CustomTextWidget(
                           text: AppStrings.keepItUp,
                           fontSize: 12.sp,
@@ -91,20 +92,22 @@ class _ScreenOneState extends State<ScreenOne> {
               GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ScreenTwo()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ScreenTwo(),
+                    ),
+                  );
                 },
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                  //height: 32,
                   width: 150.w,
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8.r),
-                      border: Border.all(
-                          width: 1, color: AppColor.primaryColor.shade100)),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8.r),
+                    border: Border.all(
+                        width: 1, color: AppColor.primaryColor.shade100),
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -113,10 +116,11 @@ class _ScreenOneState extends State<ScreenOne> {
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400),
                       SizedBox(
-                          height: 18.5.h,
-                          width: 18.5.w,
-                          child: SvgPicture.network(
-                              "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783747/leatherboard-ranking_gcgmaa.svg"))
+                        height: 18.5.h,
+                        width: 18.5.w,
+                        child: SvgPicture.network(
+                            "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783747/leatherboard-ranking_gcgmaa.svg"),
+                      )
                     ],
                   ),
                 ),
@@ -128,7 +132,6 @@ class _ScreenOneState extends State<ScreenOne> {
               AppSpace.vertical16,
               Expanded(
                 child: SingleChildScrollView(
-                  //height: 360.h,
                   child: TableCalendar(
                     calendarFormat: CalendarFormat.month,
                     firstDay: DateTime.utc(1999, 01, 10),

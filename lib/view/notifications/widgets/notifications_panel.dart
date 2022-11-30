@@ -11,8 +11,9 @@ class NotificationsPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 5,
-        itemBuilder: (context, itemIndex) => const TimeNotificationsBox());
+      itemCount: 5,
+      itemBuilder: (context, itemIndex) => const TimeNotificationsBox(),
+    );
   }
 }
 
@@ -63,8 +64,9 @@ class NotificationItem extends StatelessWidget {
               label: const Text("Delete"),
               icon: const Icon(Icons.delete),
               style: const ButtonStyle(
-                  foregroundColor: MaterialStatePropertyAll(Colors.white),
-                  textStyle: MaterialStatePropertyAll(AppText.h5medium)),
+                foregroundColor: MaterialStatePropertyAll(Colors.white),
+                textStyle: MaterialStatePropertyAll(AppText.h5medium),
+              ),
               onPressed: null),
         ),
         secondaryBackground: Container(
@@ -76,9 +78,11 @@ class NotificationItem extends StatelessWidget {
               label: const Text("Read"),
               icon: const Icon(Icons.mark_email_read_rounded),
               style: ButtonStyle(
-                  foregroundColor: const MaterialStatePropertyAll(Colors.white),
-                  textStyle: MaterialStatePropertyAll(
-                      AppText.h5medium.copyWith(color: Colors.white))),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white),
+                textStyle: MaterialStatePropertyAll(
+                  AppText.h5medium.copyWith(color: Colors.white),
+                ),
+              ),
               onPressed: null),
         ),
         child: SizedBox(

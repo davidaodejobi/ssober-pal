@@ -32,20 +32,21 @@ class _IntroScreenState extends State<IntroScreen> {
               "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783721/Onboarding-1_img_msewo3.png"),
     ),
     PageViewModel(
-        title: 'Share Your Journey',
-        bodyWidget: Text(
-          "Share your journey anonymously to encourage others on their journey and help prevent a relapse",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.grey.shade700,
-            fontSize: 16,
-          ),
+      title: 'Share Your Journey',
+      bodyWidget: Text(
+        "Share your journey anonymously to encourage others on their journey and help prevent a relapse",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.grey.shade700,
+          fontSize: 16,
         ),
-        image: CachedNetworkImage(
-            fit: BoxFit.fitWidth,
-            width: double.infinity,
-            imageUrl:
-                "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783721/Onboarding-2_img_fqzccj.png")),
+      ),
+      image: CachedNetworkImage(
+          fit: BoxFit.fitWidth,
+          width: double.infinity,
+          imageUrl:
+              "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668783721/Onboarding-2_img_fqzccj.png"),
+    ),
   ];
 
   @override
@@ -77,20 +78,22 @@ class _IntroScreenState extends State<IntroScreen> {
             height: 45,
             width: 200,
             child: Card(
-                color: Colors.blue,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16)),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Next",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                  ],
-                )),
+              color: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    "Next",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ],
+              ),
+            ),
           ),
           onDone: () => context.goNamed("setup"),
         ),

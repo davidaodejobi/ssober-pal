@@ -1,5 +1,6 @@
 import 'package:cloudinary_dart/cloudinary.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Error404Screen extends StatelessWidget {
   const Error404Screen({super.key});
@@ -14,7 +15,9 @@ class Error404Screen extends StatelessWidget {
       minimumSize: const Size(88, 36),
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(2.0)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(2.0),
+        ),
       ),
     );
     return Scaffold(
@@ -32,7 +35,7 @@ class Error404Screen extends StatelessWidget {
             child: TextButton(
               style: flatButtonStyle,
               onPressed: () {
-                Navigator.pop(context);
+                context.go('/main_screen');
               },
               child: Text(
                 "Go Home".toUpperCase(),

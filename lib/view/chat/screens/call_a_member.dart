@@ -2,11 +2,11 @@ import 'package:addictionsupportroom/util/app_images.dart';
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/spacing.dart';
 import 'package:addictionsupportroom/util/text.dart';
-import 'package:addictionsupportroom/view/chat/screens/profile_chat_screen.dart';
+import 'package:addictionsupportroom/view/chat/screens/chat_profile.dart';
 import 'package:flutter/material.dart';
 
-class CallAMemeberScreen extends StatelessWidget {
-  const CallAMemeberScreen({super.key});
+class CallAMemeber extends StatelessWidget {
+  const CallAMemeber({super.key});
 
   @override
   Widget build(BuildContext context) {
