@@ -1,5 +1,6 @@
 import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
 import 'package:addictionsupportroom/controller/chat/tab_bar_controller.dart';
+import 'package:addictionsupportroom/locator.dart';
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/routes/app_route.dart';
 
@@ -9,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  setup();
   runApp(const MyApp());
 }
 
