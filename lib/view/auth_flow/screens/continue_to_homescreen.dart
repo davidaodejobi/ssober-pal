@@ -1,3 +1,5 @@
+import 'package:addictionsupportroom/util/util.dart';
+import 'package:addictionsupportroom/view/shared/app_eleevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -15,61 +17,64 @@ class _ContinueToHomescreenState extends State<ContinueToHomescreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Center(
-              child: Text(
-                "How many bottles do you take in a week ?",
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 27,
-                ),
-              ),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
             ),
-            const SizedBox(
-              height: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-              child: TextField(
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(
-                    RegExp(r'[0-9]'),
+            onPressed: () {
+              context.pop();
+            },
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 16,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AppSpace.vertical4,
+              Column(
+                children: [
+                  const Center(
+                    child: Text(
+                      "How many bottles do you take in a week ?",
+                      textAlign: TextAlign.start,
+                      style: AppText.h5medium,
+                    ),
                   ),
-                  FilteringTextInputFormatter.digitsOnly
+                  AppSpace.vertical8,
+                  TextField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.allow(
+                        RegExp(r'[0-9]'),
+                      ),
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    decoration: InputDecoration(
+                      hintText: 'Enter the number of bottles',
+                      border: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.deepPurple.shade400),
+                      ),
+                    ),
+                  ),
                 ],
-                decoration: InputDecoration(
-                  hintText: 'Enter Number of bottles',
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.deepPurple.shade400),
-                  ),
-                ),
               ),
-            ),
-            const SizedBox(
-              height: 150,
-            ),
-            SizedBox(
-              height: 40,
-              width: 350,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
+              AppElevatedButton(
+                onPressed: () => context.go(
+                  '/main_screen',
                 ),
-                onPressed: () {
-                  context.go('/main_screen');
-                },
-                child: const Text("Continue to Homescreen"),
+                text: 'Continue to Home Screen',
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );

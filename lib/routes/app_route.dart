@@ -1,3 +1,4 @@
+import 'package:addictionsupportroom/view/auth_flow/screens/continue_to_homescreen.dart';
 import 'package:addictionsupportroom/view/chat/screens/call_a_member.dart';
 import 'package:addictionsupportroom/view/chat/screens/chat_profile.dart';
 import 'package:addictionsupportroom/view/chat/screens/indivdual_chat.dart';
@@ -22,6 +23,11 @@ final router = GoRouter(
       name: 'setup',
       path: "/setup",
       builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      name: "continue_to_homescreen",
+      path: "/continue_to_homescreen",
+      builder: (context, state) => const ContinueToHomescreen(),
     ),
     GoRoute(
       name: "notifications",
@@ -64,6 +70,11 @@ final onBoardingRouter = GoRouter(
       name: 'setup',
       path: "/",
       builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      name: "continue_to_homescreen",
+      path: "/continue_to_homescreen",
+      builder: (context, state) => const ContinueToHomescreen(),
     ),
     GoRoute(
       name: "notifications",

@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
-import '../../../util/reuseables/custom_text.dart';
-
 class AvatarBottomSheet extends StatelessWidget {
   const AvatarBottomSheet({Key? key}) : super(key: key);
 
@@ -15,7 +13,7 @@ class AvatarBottomSheet extends StatelessWidget {
     return Container(
       color: const Color(0xff757575),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.35,
+        height: MediaQuery.of(context).size.height * 0.30,
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
@@ -25,14 +23,14 @@ class AvatarBottomSheet extends StatelessWidget {
           color: Colors.white,
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppSpace.vertical16,
-            const CustomTextWidget(
-              text: 'Select Avatar',
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              textColor: Color.fromRGBO(32, 78, 101, 1),
+            Text(
+              'Select Avatar',
+              style: AppText.paragraph2medium.copyWith(
+                color: const Color.fromRGBO(32, 78, 101, 1),
+              ),
             ),
             const SizedBox(height: 8),
             Expanded(
@@ -43,10 +41,11 @@ class AvatarBottomSheet extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 85,
-                            childAspectRatio: 1 / 1,
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10),
+                      maxCrossAxisExtent: 85,
+                      childAspectRatio: 1 / 1,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                    ),
                     itemCount: authController.avatars.length,
                     itemBuilder: (BuildContext ctx, index) {
                       return Column(

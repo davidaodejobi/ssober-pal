@@ -1,10 +1,16 @@
-import 'package:addictionsupportroom/controller/auth/auth_controller.dart';
-import 'package:addictionsupportroom/util/util.dart';
-import 'package:addictionsupportroom/view/auth_flow/widgets/avatar_buttom_sheet.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
+import 'package:addictionsupportroom/controller/auth/auth_controller.dart';
+import 'package:addictionsupportroom/util/util.dart';
+import 'package:addictionsupportroom/view/auth_flow/widgets/avatar_buttom_sheet.dart';
+
+import '../../shared/app_eleevated_button.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -65,21 +71,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           onTap: () {
                             showModalBottomSheet(
                               context: context,
+                              enableDrag: true,
                               builder: (context) => const AvatarBottomSheet(),
                             );
                           },
                           child: Container(
-                            margin: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
+                            height: 25,
+                            width: 25,
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
-                              color: AppColor.grayColor.shade100,
+                              color: Colors.white,
                             ),
-                            height: 24,
-                            width: 24,
-                            child: const Icon(
-                              Icons.edit,
-                              size: 16,
-                              color: AppColor.kBlackColor,
+                            child: Container(
+                              margin: const EdgeInsets.all(2),
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColor.grayColor.shade100,
+                              ),
+                              height: 20,
+                              width: 20,
+                              child: SvgPicture.asset(
+                                'assets/svgs/brush.svg',
+                                color: AppColor.primaryColor,
+                              ),
                             ),
                           ),
                         ),
@@ -110,17 +125,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   AppSpace.vertical32,
-                  SizedBox(
-                    height: 48,
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Set Nickname",
-                        style: AppText.h6medium,
-                      ),
+                  AppElevatedButton(
+                    onPressed: () => context.push(
+                      '/continue_to_homescreen',
                     ),
-                  )
+                    text: 'Set Nickname',
+                  ),
                 ],
               ),
             ),
