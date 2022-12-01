@@ -10,7 +10,44 @@ import 'package:addictionsupportroom/view/shared/main_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:addictionsupportroom/view/auth_flow/screens/profile_section_screen_one.dart';
 
-final router = GoRouter(
+final homeRouter = GoRouter(
+  debugLogDiagnostics: true,
+  initialLocation: "/",
+  routes: [
+    GoRoute(
+      name: "main_screen",
+      path: '/',
+      builder: (context, state) => const MainScreen(),
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'profile_chat',
+          builder: (context, state) => const ChatProfile(),
+        ),
+        GoRoute(
+          path: 'individual_chat',
+          builder: (context, state) => const IndivdualChat(),
+        ),
+        GoRoute(
+          path: 'call_a_member',
+          builder: (context, state) => const CallAMemeber(),
+        ),
+      ],
+    ),
+    GoRoute(
+      name: "notifications",
+      path: "/notifications",
+      builder: (context, state) => const NotificationScreen(),
+    ),
+    GoRoute(
+      name: "screen_two",
+      path: '/screen_two',
+      builder: (context, state) => const ScreenTwo(),
+    ),
+  ],
+  errorBuilder: (context, state) => const Error404Screen(),
+);
+
+final onBoardingRouter = GoRouter(
   debugLogDiagnostics: true,
   initialLocation: "/",
   routes: [
@@ -62,7 +99,7 @@ final router = GoRouter(
   errorBuilder: (context, state) => const Error404Screen(),
 );
 
-final onBoardingRouter = GoRouter(
+final signuoRouter = GoRouter(
   debugLogDiagnostics: true,
   initialLocation: "/",
   routes: [

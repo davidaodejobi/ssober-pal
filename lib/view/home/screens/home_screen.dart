@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
+import 'package:addictionsupportroom/locator.dart';
+import 'package:addictionsupportroom/services/services.dart';
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/spacing.dart';
 import 'package:addictionsupportroom/util/text.dart';
@@ -8,10 +12,32 @@ import 'package:addictionsupportroom/view/shared/progress_widget.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
+HiveStorageService hiveStorageService = getIt<HiveStorageService>();
+
+class Home extends StatefulWidget {
   const Home({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  String nickName = '';
+  @override
+  @override
+  void initState() {
+    hiveStorageService.readItem(key: nickName).then(
+      (value) {
+        log('value: $value');
+        setState(() {
+          nickName = value ?? '';
+        });
+      },
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +52,7 @@ class Home extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Hello, Dolphin!', style: AppText.h4medium),
+                Text('Hello, $nickName', style: AppText.h4medium),
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.notifications_outlined),

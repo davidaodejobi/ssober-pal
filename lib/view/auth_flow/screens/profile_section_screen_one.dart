@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:addictionsupportroom/view/shared/toast.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -115,6 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   AppSpace.vertical8,
                   TextField(
+                    controller: authController.nickNameController,
                     decoration: InputDecoration(
                       hintText: 'Lion',
                       border: OutlineInputBorder(
@@ -126,9 +128,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   AppSpace.vertical32,
                   AppElevatedButton(
-                    onPressed: () => context.push(
-                      '/continue_to_homescreen',
-                    ),
+                    isLoading: authController.isLoading,
+                    // onPressed: () => context.push(
+                    //   '/continue_to_homescreen',
+                    // ),
+                    onPressed: () {
+                      if (authController.validation(context)) {
+                        authController.signUserIn().then((value) {
+                          if (value) {
+                            context.push(
+                              '/continue_to_homescreen',
+                            );
+                          } else {
+                            errorToast(context,
+                                message:
+                                    'Please try again or enter a new Nickname');
+                          }
+                        });
+                      }
+                    },
                     text: 'Set Nickname',
                   ),
                 ],
