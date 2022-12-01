@@ -1,3 +1,4 @@
+import 'package:addictionsupportroom/view/auth_flow/screens/continue_to_homescreen.dart';
 import 'package:addictionsupportroom/view/chat/screens/call_a_member.dart';
 import 'package:addictionsupportroom/view/chat/screens/chat_profile.dart';
 import 'package:addictionsupportroom/view/chat/screens/indivdual_chat.dart';
@@ -7,9 +8,46 @@ import 'package:addictionsupportroom/view/progress_section/screen_two.dart';
 import 'package:addictionsupportroom/routes/error404.dart';
 import 'package:addictionsupportroom/view/shared/main_screen.dart';
 import 'package:go_router/go_router.dart';
-import 'package:addictionsupportroom/profile_screen/profile_section_screen_one.dart';
+import 'package:addictionsupportroom/view/auth_flow/screens/profile_section_screen_one.dart';
 
-final router = GoRouter(
+final homeRouter = GoRouter(
+  debugLogDiagnostics: true,
+  initialLocation: "/",
+  routes: [
+    GoRoute(
+      name: "main_screen",
+      path: '/',
+      builder: (context, state) => const MainScreen(),
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'profile_chat',
+          builder: (context, state) => const ChatProfile(),
+        ),
+        GoRoute(
+          path: 'individual_chat',
+          builder: (context, state) => const IndivdualChat(),
+        ),
+        GoRoute(
+          path: 'call_a_member',
+          builder: (context, state) => const CallAMemeber(),
+        ),
+      ],
+    ),
+    GoRoute(
+      name: "notifications",
+      path: "/notifications",
+      builder: (context, state) => const NotificationScreen(),
+    ),
+    GoRoute(
+      name: "screen_two",
+      path: '/screen_two',
+      builder: (context, state) => const ScreenTwo(),
+    ),
+  ],
+  errorBuilder: (context, state) => const Error404Screen(),
+);
+
+final onBoardingRouter = GoRouter(
   debugLogDiagnostics: true,
   initialLocation: "/",
   routes: [
@@ -22,6 +60,11 @@ final router = GoRouter(
       name: 'setup',
       path: "/setup",
       builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      name: "continue_to_homescreen",
+      path: "/continue_to_homescreen",
+      builder: (context, state) => const ContinueToHomescreen(),
     ),
     GoRoute(
       name: "notifications",
@@ -56,7 +99,7 @@ final router = GoRouter(
   errorBuilder: (context, state) => const Error404Screen(),
 );
 
-final onBoardingRouter = GoRouter(
+final signuoRouter = GoRouter(
   debugLogDiagnostics: true,
   initialLocation: "/",
   routes: [
@@ -64,6 +107,11 @@ final onBoardingRouter = GoRouter(
       name: 'setup',
       path: "/",
       builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      name: "continue_to_homescreen",
+      path: "/continue_to_homescreen",
+      builder: (context, state) => const ContinueToHomescreen(),
     ),
     GoRoute(
       name: "notifications",
