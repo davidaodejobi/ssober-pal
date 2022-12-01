@@ -1,27 +1,26 @@
-import 'package:addictionsupportroom/profile_screen/continue_to_homescreen.dart';
+import 'package:addictionsupportroom/view/auth_flow/profile_screen_three.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class AvatarSelection extends StatefulWidget {
-  const AvatarSelection({Key? key}) : super(key: key);
+class ProfileScreen2 extends StatefulWidget {
+  const ProfileScreen2({Key? key}) : super(key: key);
 
   @override
-  State<AvatarSelection> createState() => _AvatarSelectionState();
+  State<ProfileScreen2> createState() => _ProfileScreen2State();
 }
 
-class _AvatarSelectionState extends State<AvatarSelection> {
+class _ProfileScreen2State extends State<ProfileScreen2> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.grey.shade500,
+        backgroundColor: Colors.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.network(
-              "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668784355/profile-avatar-1_dv4b1c.svg",
-            ),
+                "https://res.cloudinary.com/du4c6jbsw/image/upload/v1668784355/profile-avatar-1_dv4b1c.svg"),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               child: TextField(
@@ -50,11 +49,11 @@ class _AvatarSelectionState extends State<AvatarSelection> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ContinueToHomescreen(),
+                      builder: (context) => const AvatarSelection(),
                     ),
                   );
                 },
-                child: const Text("Save"),
+                child: const Text("Set Nickname"),
               ),
             )
           ],

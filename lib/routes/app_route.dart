@@ -7,7 +7,7 @@ import 'package:addictionsupportroom/view/progress_section/screen_two.dart';
 import 'package:addictionsupportroom/routes/error404.dart';
 import 'package:addictionsupportroom/view/shared/main_screen.dart';
 import 'package:go_router/go_router.dart';
-import 'package:addictionsupportroom/profile_screen/profile_section_screen_one.dart';
+import 'package:addictionsupportroom/view/auth_flow/screens/profile_section_screen_one.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: true,
