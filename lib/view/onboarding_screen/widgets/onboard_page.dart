@@ -1,7 +1,9 @@
+import 'package:addictionsupportroom/controller/onboarding/onboarding_controller.dart';
 import 'package:addictionsupportroom/util/util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 
 class OnboardScreen extends StatelessWidget {
   final String imageUrl;
@@ -50,63 +52,70 @@ class OnboardScreen extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        AppSpace.vertical16,
-                        Text(
-                          title,
-                          style: AppText.h3medium,
-                        ),
-                        const SizedBox(height: 20),
-                        Text(
-                          description,
-                          textAlign: TextAlign.center,
-                          style: AppText.paragraph1regular,
-                        ),
-                      ],
-                    ),
-                    if (isLast)
-                      SizedBox(
-                        height: 48,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Start your sober journey',
-                            style: AppText.h5medium,
-                          ),
-                        ),
-                      ),
-                    if (!isLast)
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Consumer<OnboardingController>(
+                  builder: (_, value, __) => Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
                         children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Skip',
-                              style: AppText.paragraph1regular.copyWith(
-                                color: AppColor.grayColor,
-                              ),
-                            ),
+                          AppSpace.vertical16,
+                          Text(
+                            title,
+                            style: AppText.h3medium,
                           ),
-                          SizedBox(
-                            height: 48,
-                            width: MediaQuery.of(context).size.width / 2.4,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: const Text(
-                                'Next',
-                                style: AppText.h5medium,
-                              ),
-                            ),
+                          const SizedBox(height: 20),
+                          Text(
+                            description,
+                            textAlign: TextAlign.center,
+                            style: AppText.paragraph1regular,
                           ),
                         ],
                       ),
-                  ],
+                      if (isLast)
+                        SizedBox(
+                          height: 48,
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () =>
+                                value.setHasSeenOnboarding(context),
+                            child: const Text(
+                              'Start your sober journey',
+                              style: AppText.h5medium,
+                            ),
+                          ),
+                        ),
+                      if (!isLast)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                              onPressed: () =>
+                                  value.setHasSeenOnboarding(context),
+                              child: Text(
+                                'Skip',
+                                style: AppText.paragraph1regular.copyWith(
+                                  color: AppColor.grayColor,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 48,
+                              width: MediaQuery.of(context).size.width / 2.4,
+                              child: ElevatedButton(
+                                onPressed: () => controller.nextPage(
+                                  duration: const Duration(milliseconds: 1000),
+                                  curve: Curves.slowMiddle,
+                                ),
+                                child: const Text(
+                                  'Next',
+                                  style: AppText.h5medium,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                    ],
+                  ),
                 ),
               ],
             ),

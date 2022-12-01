@@ -19,14 +19,50 @@ final router = GoRouter(
       builder: (context, state) => OnbaordingScreen(),
     ),
     GoRoute(
-      name: 'home',
-      path: "/home",
-      builder: (context, state) => const MainScreen(),
-    ),
-    // Profile Setup
-    GoRoute(
       name: 'setup',
       path: "/setup",
+      builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      name: "notifications",
+      path: "/notifications",
+      builder: (context, state) => const NotificationScreen(),
+    ),
+    GoRoute(
+      name: "screen_two",
+      path: '/screen_two',
+      builder: (context, state) => const ScreenTwo(),
+    ),
+    GoRoute(
+      name: "main_screen",
+      path: '/main_screen',
+      builder: (context, state) => const MainScreen(),
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'profile_chat',
+          builder: (context, state) => const ChatProfile(),
+        ),
+        GoRoute(
+          path: 'individual_chat',
+          builder: (context, state) => const IndivdualChat(),
+        ),
+        GoRoute(
+          path: 'call_a_member',
+          builder: (context, state) => const CallAMemeber(),
+        ),
+      ],
+    ),
+  ],
+  errorBuilder: (context, state) => const Error404Screen(),
+);
+
+final onBoardingRouter = GoRouter(
+  debugLogDiagnostics: true,
+  initialLocation: "/",
+  routes: [
+    GoRoute(
+      name: 'setup',
+      path: "/",
       builder: (context, state) => const ProfileScreen(),
     ),
     GoRoute(
