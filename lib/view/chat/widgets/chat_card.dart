@@ -8,13 +8,13 @@ class ChatCard extends StatelessWidget {
   final String name;
   final String message;
   final String time;
-  final bool isIndividual;
+  final bool fromUser;
   const ChatCard({
     Key? key,
     this.name = '',
     required this.message,
     required this.time,
-    this.isIndividual = false,
+    this.fromUser = true,
   }) : super(key: key);
 
   @override
@@ -44,7 +44,7 @@ class ChatCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (name.isNotEmpty && !isIndividual)
+                  if (name.isNotEmpty && !fromUser)
                     GestureDetector(
                       onTap: () {
                         context.go('/main_screen/profile_chat');
@@ -60,7 +60,7 @@ class ChatCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                  if (name.isNotEmpty && !isIndividual) AppSpace.vertical4,
+                  if (name.isNotEmpty && !fromUser) AppSpace.vertical4,
                   Text(
                     message,
                     style: AppText.paragraph1regular,

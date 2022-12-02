@@ -1,4 +1,6 @@
+import 'package:addictionsupportroom/controller/chat/chat_controller.dart';
 import 'package:addictionsupportroom/controller/chat/tab_bar_controller.dart';
+import 'package:addictionsupportroom/model/chat_model.dart';
 import 'package:addictionsupportroom/model/user_model.dart';
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/spacing.dart';
@@ -19,32 +21,43 @@ class IndivdualChat extends StatefulWidget {
 }
 
 class IndivdualChatState extends State<IndivdualChat> {
+  final chatController = ChatController();
+  final textEditingController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    chatController.initState(widget.receiver.id);
+    // Initialize contoller
+    // Fetch previous messages
+    // chatController.stream.listen((value) {
+    //   // Populate messages
+    //   print('Value from controller: $value');
+    // });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    chatController.dispose();
+  }
+
+  sendMessage() async {
+    final newMessage = textEditingController.text;
+    final successful = await chatController.sendMessage(
+      ChatModel(
+        content: newMessage,
+        receiver: widget.receiver.id.toString(),
+      ),
+    );
+    // Clear message in box
+    if (successful) textEditingController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     final receiver = widget.receiver;
 
-    List<ChatCard> chats = [
-      const ChatCard(
-        name: '',
-        message:
-            'Hey man, I know how difficult this can be and trust me I’ve been there, but i want you to know that ending this addiction can only be a plus to your life. I’m a living witness to this and i also want this to be your story. Stay strong man and don’t ever give in to that voice. Soberpal community loves you. Drop me heart when you get this. Cheers',
-        time: '09:35 PM',
-        isIndividual: true,
-      ),
-      const ChatCard(
-        name: 'Jay',
-        message:
-            'Thank you so much, your message really encoraged me and I did not give in to my cravings, I hope to keep this energy next time. Cheers.',
-        time: '09:35 PM',
-        isIndividual: true,
-      ),
-      const ChatCard(
-        name: '',
-        message: 'Glad I could help',
-        time: '09:35 PM',
-        isIndividual: true,
-      ),
-    ];
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -72,18 +85,93 @@ class IndivdualChatState extends State<IndivdualChat> {
         child: Column(
           children: [
             Expanded(
-              child: ListView.builder(
-                itemCount: chats.length,
-                itemBuilder: (context, index) {
-                  return chats[index];
-                },
-              ),
+              child: StreamBuilder<List<ChatModel>>(
+                  stream: chatController.stream,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      Column(
+                        children: [
+                          const Icon(
+                            Icons.error_outline,
+                            color: Colors.red,
+                            size: 60,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16),
+                            child: Text('Error: ${snapshot.error}'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text('Stack trace: ${snapshot.stackTrace}'),
+                          ),
+                        ],
+                      );
+                    } else {
+                      switch (snapshot.connectionState) {
+                        case ConnectionState.none:
+                        // children = const <Widget>[
+                        //   Icon(
+                        //     Icons.info,
+                        //     color: Colors.blue,
+                        //     size: 60,
+                        //   ),
+                        //   Padding(
+                        //     padding: EdgeInsets.only(top: 16),
+                        //     child: Text('Select a lot'),
+                        //   ),
+                        // ];
+                        case ConnectionState.waiting:
+                          return const Center(
+                            child: SizedBox(
+                              width: 40,
+                              height: 40,
+                              child: CircularProgressIndicator(),
+                            ),
+                          );
+                        case ConnectionState.active:
+                          final chats = snapshot.data!;
+
+                          return ListView.builder(
+                            itemCount: chats.length,
+                            itemBuilder: (context, index) {
+                              final chat = chats[index];
+                              return ChatCard(
+                                message: chat.content,
+                                time: chat.creationDate.toString(),
+                                fromUser: false,
+                              );
+                            },
+                          );
+                        case ConnectionState.done:
+                          return Column(
+                            children: [
+                              const Icon(
+                                Icons.info,
+                                color: Colors.blue,
+                                size: 60,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 16),
+                                child: Text('\$${snapshot.data} (closed)'),
+                              ),
+                            ],
+                          );
+                      }
+                    }
+
+                    return const Center(
+                        child: SizedBox(
+                      width: 40,
+                      height: 40,
+                      child: Text('done'), //CircularProgressIndicator(),
+                    ));
+                  }),
             ),
             Consumer<TabBarController>(
               builder: (_, controller, __) {
                 return BottomTextFieldWithActionButtons(
                   sendRecordButton: IconWithCircularBorder(
-                    onTap: () {},
+                    onTap: sendMessage,
                     bgColor: controller.individualHasTyped
                         ? AppColor.secondaryColor.shade600
                         : Colors.transparent,
@@ -103,7 +191,7 @@ class IndivdualChatState extends State<IndivdualChat> {
                             size: 28,
                           ),
                   ),
-                  textEditingController: TextEditingController(),
+                  textEditingController: textEditingController,
                   onAddPress: () {},
                   onTextChange: (input) {
                     controller.individualTyping(input);

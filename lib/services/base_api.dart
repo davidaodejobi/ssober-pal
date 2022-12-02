@@ -19,7 +19,9 @@ connectBaseApi() {
   dio.interceptors.add(
     InterceptorsWrapper(
       onRequest: (options, handler) async {
-        String? value = await storageService.readItem(key: token);
+        String? value =
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1IiwiZXhwIjoxNjcwMTkyNjg0fQ.255Vle_fb_9xclZQSK98DsPTeas_W7jOpQmWpCMxvC8';
+        //await storageService.readItem(key: token);
         log('value: $value');
         if (value != null) {
           options.headers['Authorization'] = "Bearer $value";
