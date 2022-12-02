@@ -1,4 +1,5 @@
 import 'package:addictionsupportroom/controller/chat/tab_bar_controller.dart';
+import 'package:addictionsupportroom/model/user_model.dart';
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/spacing.dart';
 import 'package:addictionsupportroom/util/text.dart';
@@ -9,7 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class IndivdualChat extends StatefulWidget {
-  const IndivdualChat({Key? key}) : super(key: key);
+  const IndivdualChat({Key? key, required this.receiver}) : super(key: key);
+
+  final User receiver;
 
   @override
   IndivdualChatState createState() => IndivdualChatState();
@@ -18,6 +21,8 @@ class IndivdualChat extends StatefulWidget {
 class IndivdualChatState extends State<IndivdualChat> {
   @override
   Widget build(BuildContext context) {
+    final receiver = widget.receiver;
+
     List<ChatCard> chats = [
       const ChatCard(
         name: '',
@@ -44,12 +49,12 @@ class IndivdualChatState extends State<IndivdualChat> {
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            CircleAvatar(
+          children: [
+            const CircleAvatar(
               radius: 16,
             ),
             AppSpace.horizontal8,
-            Text('Jargur', style: AppText.h5bold),
+            Text(receiver.username, style: AppText.h5bold),
           ],
         ),
         actions: [
@@ -59,8 +64,8 @@ class IndivdualChatState extends State<IndivdualChat> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
+      body: SafeArea(
+        minimum: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 8.0,
         ),

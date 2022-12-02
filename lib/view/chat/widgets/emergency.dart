@@ -87,7 +87,12 @@ class _EmergencyState extends State<Emergency> {
                                     ),
                                     AppSpace.horizontal8,
                                     IconWithCircularBorder(
-                                      onTap: () {},
+                                      onTap: () {
+                                        context.push(
+                                          '/main_screen/individual_chat/',
+                                          extra: item,
+                                        );
+                                      },
                                       color: AppColor.primaryColor.shade200,
                                       size: 40,
                                       child: const Icon(

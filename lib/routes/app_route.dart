@@ -1,3 +1,4 @@
+import 'package:addictionsupportroom/model/user_model.dart';
 import 'package:addictionsupportroom/view/auth_flow/screens/continue_to_homescreen.dart';
 import 'package:addictionsupportroom/view/chat/screens/call_a_member.dart';
 import 'package:addictionsupportroom/view/chat/screens/chat_profile.dart';
@@ -50,7 +51,9 @@ final router = GoRouter(
         ),
         GoRoute(
           path: 'individual_chat',
-          builder: (context, state) => const IndivdualChat(),
+          builder: (context, state) => IndivdualChat(
+            receiver: state.extra as User,
+          ),
         ),
         GoRoute(
           path: 'call_a_member',
@@ -95,9 +98,11 @@ final onBoardingRouter = GoRouter(
           path: 'profile_chat',
           builder: (context, state) => const ChatProfile(),
         ),
-        GoRoute(
+       GoRoute(
           path: 'individual_chat',
-          builder: (context, state) => const IndivdualChat(),
+          builder: (context, state) => IndivdualChat(
+            receiver: state.extra as User,
+          ),
         ),
         GoRoute(
           path: 'call_a_member',
