@@ -20,7 +20,7 @@ class FeelingStatus extends StatelessWidget {
               builder: (context) {
                 List<Feelings> emojiList = [
                   Feelings(
-                      label: data.noteList[0].title.toString(),
+                      label: 'Happy', //data.noteList[0].title.toString(),
                       emoji: Icons.mood_bad,
                       color: AppColor.errorColor.shade50,
                       message:

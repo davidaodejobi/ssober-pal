@@ -11,6 +11,9 @@ import 'package:addictionsupportroom/view/chat/widgets/tab_bar_card.dart';
 
 import '../widgets/chats.dart';
 
+// Fetch emergency contacts
+
+
 class Chat extends StatelessWidget {
   const Chat({
     Key? key,
@@ -82,7 +85,7 @@ class Chat extends StatelessWidget {
               child: ChatRoom(controller: controller),
             ),
           if (controller.currentTab == Tabs.emergency)
-            const Expanded(
+            Expanded(
               child: Emergency(),
             ),
           if (controller.currentTab == Tabs.chats)

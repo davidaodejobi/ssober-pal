@@ -12,7 +12,7 @@ import 'package:addictionsupportroom/view/auth_flow/screens/profile_section_scre
 
 final router = GoRouter(
   debugLogDiagnostics: true,
-  initialLocation: "/",
+  initialLocation: "/main_screen",
   routes: [
     GoRoute(
       name: 'onboarding',
@@ -64,7 +64,7 @@ final router = GoRouter(
 
 final onBoardingRouter = GoRouter(
   debugLogDiagnostics: true,
-  initialLocation: "/",
+  initialLocation: "/main_screen",
   routes: [
     GoRoute(
       name: 'setup',
