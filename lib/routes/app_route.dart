@@ -26,7 +26,9 @@ final homeRouter = GoRouter(
         ),
         GoRoute(
           path: 'individual_chat',
-          builder: (context, state) => const IndivdualChat(),
+          builder: (context, state) => IndivdualChat(
+            receiver: state.extra as UserModel,
+          ),
         ),
         GoRoute(
           path: 'call_a_member',
@@ -89,7 +91,7 @@ final onBoardingRouter = GoRouter(
         GoRoute(
           path: 'individual_chat',
           builder: (context, state) => IndivdualChat(
-            receiver: state.extra as User,
+            receiver: state.extra as UserModel,
           ),
         ),
         GoRoute(
@@ -135,10 +137,10 @@ final signuoRouter = GoRouter(
           path: 'profile_chat',
           builder: (context, state) => const ChatProfile(),
         ),
-       GoRoute(
+        GoRoute(
           path: 'individual_chat',
           builder: (context, state) => IndivdualChat(
-            receiver: state.extra as User,
+            receiver: state.extra as UserModel,
           ),
         ),
         GoRoute(

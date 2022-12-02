@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 class IndivdualChat extends StatefulWidget {
   const IndivdualChat({Key? key, required this.receiver}) : super(key: key);
 
-  final User receiver;
+  final UserModel receiver;
 
   @override
   IndivdualChatState createState() => IndivdualChatState();
@@ -54,7 +54,7 @@ class IndivdualChatState extends State<IndivdualChat> {
               radius: 16,
             ),
             AppSpace.horizontal8,
-            Text(receiver.username, style: AppText.h5bold),
+            Text(receiver.username ?? '', style: AppText.h5bold),
           ],
         ),
         actions: [
