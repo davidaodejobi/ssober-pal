@@ -1,6 +1,7 @@
 import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
 import 'package:addictionsupportroom/util/util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
@@ -30,6 +31,11 @@ class FeelingsCard extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
+                          border: Border.all(
+                            color: provider.isSelected[i]
+                                ? AppColor.kDarkBlueColor
+                                : Colors.transparent,
+                          ),
                           color: provider.getEmotionsList()[i].color,
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -44,7 +50,10 @@ class FeelingsCard extends StatelessWidget {
                             ),
                             FittedBox(
                               child: Text(
-                                provider.getEmotionsList()[i].emotion,
+                                provider
+                                    .getEmotionsList()[i]
+                                    .emotion
+                                    .capitalize(),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: AppText.text1regular.copyWith(
@@ -75,15 +84,26 @@ class FeelingsCard extends StatelessWidget {
                   : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Text(
-              'Praesent adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Praesent ac sem eget est egestas volutpat. Fusce vulputate eleifend sapien.',
-              textAlign: TextAlign.center,
-              style: AppText.paragraph1medium.copyWith(
-                color: AppColor.kPrimaryColor,
-              ),
-            ),
+            child: provider.isLoading
+                ? const SpinKitChasingDots(
+                    color: Colors.white,
+                  )
+                : Text(
+                    provider.content,
+                    textAlign: TextAlign.center,
+                    style: AppText.paragraph1medium.copyWith(
+                      color: AppColor.kPrimaryColor,
+                    ),
+                  ),
           ),
       ],
     );
+  }
+}
+
+//capitalize first letter
+extension StringExtension on String {
+  String capitalize() {
+    return "${this[0].toUpperCase()}${substring(1)}";
   }
 }
