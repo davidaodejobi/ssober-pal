@@ -1,19 +1,33 @@
-class User {
-  final int id;
-  final String username;
-  final String avatar;
+// To parse this JSON data, do
+//
+//     final userModel = userModelFromJson(jsonString);
 
-  User({
-    required this.id,
-    required this.username,
-    required this.avatar,
+import 'dart:convert';
+
+UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
+
+String userModelToJson(UserModel data) => json.encode(data.toJson());
+
+class UserModel {
+  UserModel({
+    this.id,
+    this.username,
+    this.avatar,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      id: json['id'],
-      username: json['username'],
-      avatar: json['avatar'],
-    );
-  }
+  final int? id;
+  final String? username;
+  final String? avatar;
+
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+        id: json["id"],
+        username: json["username"],
+        avatar: json["avatar"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "username": username,
+        "avatar": avatar,
+      };
 }

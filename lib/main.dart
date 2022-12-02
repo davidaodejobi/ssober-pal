@@ -1,11 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:addictionsupportroom/controller/auth/auth_controller.dart';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
+import 'package:addictionsupportroom/controller/auth/auth_controller.dart';
 import 'package:addictionsupportroom/controller/chat/tab_bar_controller.dart';
 import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
 import 'package:addictionsupportroom/controller/home/note_controller.dart';
@@ -15,20 +17,30 @@ import 'package:addictionsupportroom/routes/app_route.dart';
 import 'package:addictionsupportroom/services/services.dart';
 import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/constant/keys.dart';
+import 'package:addictionsupportroom/util/constant/token_decoder.dart';
 
 HiveStorageService hiveStorageService = getIt<HiveStorageService>();
+StorageService storageService = getIt<StorageService>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setup();
   await Hive.initFlutter();
   await Hive.openBox('settings');
+  String? theToken = await storageService.readItem(key: token);
+  log('theToken: $theToken');
+  bool expired = theToken == null ? true : isTokenExpired(theToken);
+  log('expired: $expired');
+  if (expired) {
+    storageService.deleteItem(key: token);
+  }
 
   hiveStorageService.readItem(key: onBoarded).then(
     (value) {
       value ??= false;
       runApp(
         MyApp(
+          hasExpired: expired,
           isOnboarded: value,
         ),
       );
@@ -37,9 +49,11 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  final bool hasExpired;
   final bool isOnboarded;
   const MyApp({
     Key? key,
+    required this.hasExpired,
     required this.isOnboarded,
   }) : super(key: key);
 
@@ -63,11 +77,15 @@ class MyApp extends StatelessWidget {
         ),
         builder: (context, index) => !isOnboarded
             ? AppRouter(
-                rout: router,
-              )
-            : AppRouter(
                 rout: onBoardingRouter,
-              ),
+              )
+            : hasExpired
+                ? AppRouter(
+                    rout: signuoRouter,
+                  )
+                : AppRouter(
+                    rout: homeRouter,
+                  ),
       ),
     );
   }

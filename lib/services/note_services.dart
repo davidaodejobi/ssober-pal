@@ -7,7 +7,7 @@ class NoteServices {
     List<Note> result = [];
     var dio = Dio();
     try {
-      final response = await dio.get('$baseurl/api/home/notes');
+      final response = await dio.get('$baseUrl/api/home/notes');
       if (response.statusCode == 200) {
         for (var element in response.data) {
           result.add(

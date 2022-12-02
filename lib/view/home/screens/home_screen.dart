@@ -1,17 +1,44 @@
-import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
-import 'package:addictionsupportroom/util/color.dart';
-import 'package:addictionsupportroom/util/spacing.dart';
-import 'package:addictionsupportroom/util/text.dart';
-import 'package:addictionsupportroom/view/home/widgets/status.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:addictionsupportroom/view/home/widgets/feelings_card.dart';
 import 'package:flutter/material.dart';
-import 'package:addictionsupportroom/view/shared/progress_widget.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
+import 'package:addictionsupportroom/controller/home/feelings_controller.dart';
+import 'package:addictionsupportroom/locator.dart';
+import 'package:addictionsupportroom/services/services.dart';
+import 'package:addictionsupportroom/util/color.dart';
+import 'package:addictionsupportroom/util/constant/keys.dart';
+import 'package:addictionsupportroom/util/spacing.dart';
+import 'package:addictionsupportroom/util/text.dart';
+import 'package:addictionsupportroom/view/shared/app_eleevated_button.dart';
+import 'package:addictionsupportroom/view/shared/progress_widget.dart';
+
+HiveStorageService hiveStorageService = getIt<HiveStorageService>();
+
+class Home extends StatefulWidget {
   const Home({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  String userNameUno = '';
+  @override
+  void initState() {
+    hiveStorageService.readItem(key: nickName).then(
+      (value) {
+        setState(() {
+          userNameUno = value ?? '';
+        });
+      },
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +52,14 @@ class Home extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text('Hello, Dolphin!', style: AppText.h4medium),
+                Text('Hello, $userNameUno!', style: AppText.h4medium),
                 IconButton(
                   onPressed: () {},
-                  icon: const Icon(Icons.notifications_outlined),
+                  icon: SvgPicture.asset(
+                    'assets/svgs/notifications.svg',
+                  ),
                 ),
               ],
             ),
@@ -42,7 +72,7 @@ class Home extends StatelessWidget {
                   .copyWith(color: AppColor.grayColor.shade800),
             ),
             AppSpace.space12,
-            const FeelingStatus(),
+            const FeelingsCard(),
             AppSpace.space48,
             InkWell(
               onTap: () {
@@ -58,9 +88,8 @@ class Home extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Icon(
-                      Icons.calendar_month_outlined,
-                      color: AppColor.kPrimaryColor,
+                    SvgPicture.asset(
+                      'assets/svgs/note-favorite.svg',
                     ),
                     AppSpace.space8,
                     Expanded(
@@ -68,7 +97,7 @@ class Home extends StatelessWidget {
                         'Write a note about how you feel today',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: AppText.paragraph2medium
+                        style: AppText.paragraph1medium
                             .copyWith(color: AppColor.kPrimaryColor),
                       ),
                     ),
@@ -77,18 +106,11 @@ class Home extends StatelessWidget {
               ),
             ),
             AppSpace.space32,
-            ElevatedButton(
+            AppElevatedButton(
+              color: AppColor.kErrorColor,
+              text: 'Help! I\'m about to relapse',
               onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                backgroundColor: AppColor.errorColor.shade500,
-                minimumSize: const Size.fromHeight(50),
-                padding: const EdgeInsets.all(10),
-              ),
-              child: const Text('Help! I\'m about to relapse'),
-            )
+            ),
           ],
         ),
       ),
