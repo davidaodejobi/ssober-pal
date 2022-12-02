@@ -3,6 +3,7 @@ import 'package:addictionsupportroom/view/chat/screens/chat.dart';
 import 'package:addictionsupportroom/view/progress_section/screens/screen_one.dart';
 import 'package:flutter/material.dart';
 import 'package:addictionsupportroom/view/home/screens/home_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -13,11 +14,11 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   late int index;
-  List<Map<String, dynamic>> navItems = [
-    {'icon': Icons.home_outlined, 'label': 'Home'},
-    {'icon': Icons.stacked_line_chart, 'label': 'Progress'},
-    {'icon': Icons.chat_bubble_outline_outlined, 'label': 'Chat room'},
-    {'icon': Icons.person_outline, 'label': 'Account'},
+  List<Map<String, String>> navItems = [
+    {'icon': 'home', 'label': 'Home'},
+    {'icon': 'trend', 'label': 'Progress'},
+    {'icon': 'message', 'label': 'Chat room'},
+    {'icon': 'account', 'label': 'Account'},
   ];
 
   @override
@@ -30,7 +31,6 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: SizedBox(
-        height: 72,
         child: BottomNavigationBar(
           currentIndex: index,
           onTap: (value) => setState(
@@ -39,13 +39,18 @@ class _MainScreenState extends State<MainScreen> {
             },
           ),
           type: BottomNavigationBarType.fixed,
-          backgroundColor: AppColor.secondaryColor.shade700,
-          unselectedItemColor: AppColor.grayColor.shade100,
-          selectedItemColor: AppColor.grayColor.shade50,
+          backgroundColor: AppColor.kDarkBlueColor,
+          unselectedItemColor: AppColor.grayColor.shade200,
+          selectedItemColor: Colors.white,
           items: navItems
               .map(
                 (item) => BottomNavigationBarItem(
-                    icon: Icon(item['icon']),
+                    icon: SvgPicture.asset(
+                      'assets/svgs/${item['icon']}.svg',
+                      color: item['icon'] == navItems[index]['icon']
+                          ? Colors.white
+                          : AppColor.grayColor.shade200,
+                    ),
                     label: item['label'],
                     backgroundColor: Colors.transparent),
               )

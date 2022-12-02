@@ -2,6 +2,7 @@ import 'package:addictionsupportroom/util/color.dart';
 import 'package:addictionsupportroom/util/spacing.dart';
 import 'package:addictionsupportroom/util/text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ProgressWidget extends StatelessWidget {
   const ProgressWidget({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class ProgressWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: AppColor.secondaryColor.shade50,
+        color: AppColor.secondaryColor.shade100,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,7 +26,7 @@ class ProgressWidget extends StatelessWidget {
                 text: TextSpan(
                   text: '57',
                   style: AppText.h2medium
-                      .copyWith(color: AppColor.primaryColor.shade700),
+                      .copyWith(color: AppColor.secondaryColor.shade700),
                   children: [
                     TextSpan(
                       text: 'Total Clean Days',
@@ -35,10 +36,9 @@ class ProgressWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              const Icon(
-                Icons.emoji_events,
-                size: 60,
-              )
+              SvgPicture.asset(
+                'assets/svgs/trophy.svg',
+              ),
             ],
           ),
           AppSpace.space12,

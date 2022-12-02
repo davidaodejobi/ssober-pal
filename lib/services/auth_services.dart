@@ -39,13 +39,7 @@ class AuthService with ChangeNotifier {
 
   storeToken(response) {
     UserRes res = userResFromJson(response);
-    log('res: ${res.accessToken}');
-
     storageService.storeItem(key: token, value: res.accessToken!.token!);
-    hiveStorageService.box.put(nickName, res.username);
-    // storageService.storeItem(key: id, value: res.id.toString(),);
-    // String myToken = res.accessToken!.token!;
-
-    // storageService.storeItem(key: token, value: myToken);
+    hiveStorageService.storeItem(key: nickName, value: res.username!);
   }
 }
