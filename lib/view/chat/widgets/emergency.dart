@@ -68,7 +68,7 @@ class _EmergencyState extends State<Emergency> {
                                     ),
                                     AppSpace.horizontal8,
                                     Text(
-                                      item.username,
+                                      item.username ?? 'No username',
                                       style: AppText.paragraph1bold,
                                     ),
                                   ],
